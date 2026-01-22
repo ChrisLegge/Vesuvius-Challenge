@@ -1,4 +1,4 @@
-What volumetric (3D) data is ->
+What volumetric (3D) data is -> Volumetric 3D data is a set of samples (S) that contains 4 points: (x, y, z, v). x, y and z all represent the point in a 3D space where the value v (the proporty of the data in S) is located. The value v is usually some kind of measureable data such as colour, density, heat or preasure. If the sameples S are taken at equidistant points in a 3D grid, then the data can be stored as a 3D array with the value v at each location in the array referring to the x, y and z coordinates so x, y and z can be used to access v in this array. In this case we can access v by doing S(x, y, z) = v.
 
 What ink detection means ->
 
