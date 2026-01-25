@@ -1,0 +1,35 @@
+Vesuvius Challenge Checklist: 
+  NumPy: 
+    understanding 2D and 3D arrays 
+    can slice Volumetric data 
+    know broadcasting 
+    Normalising image arrays 
+    Stacking slices into a 3D volume
+    Extension: Processing arrays without Python loops 
+
+  Pandas:
+    Read and filter CSVs 
+    Merge metadata 
+    Convert between DataFrame and NumPy 
+
+  Matplotlib: 
+    Display CT slices 
+    Plot Histograms 
+    Compare graphs before and after pre-processing
+
+  Images as Numerical Data 
+    Knowledge of image data (2D arrays of numbers) 
+    Pixel intensity (dark to light) 
+    Grayscale vs RGB 
+    image shapes (H,W) vs (H,W,C)
+    Bit depth: 8-bit (0-255) and 16-bit (0-65535) [This is very important for CT scans) 
+    Different file formats (PNG/JPG compressed and then TIFF (used heavily in Vesuvius)
+
+Image Loading and Inspection: 
+    How to load images with PIL, opencv-python and skimage.io 
+    Checking: Shape, dtype and min/max values 
+    Displaying images correctly (imshow, cmap = "gray")
+
+Intensity Normalisation and Contrast:
+  Different Normalisation Methods: Min-max scaling, Z-score normalisation, Histogram inspection, clipping outliers, contrast stretching
+  Evaluating between global vs local normalisation 
