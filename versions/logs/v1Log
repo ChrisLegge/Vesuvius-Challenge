@@ -1,0 +1,1077 @@
+Completion time: 10676.4s
+
+Time # Log Message
+9.6s	1	0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.6s	2	0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.6s	3	0.00s - to python to disable frozen modules.
+9.6s	4	0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+10.3s	5	0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.3s	6	0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.3s	7	0.00s - to python to disable frozen modules.
+10.3s	8	0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+11.5s	9	Contents of /kaggle/input/:
+11.5s	10	['vesuvius-challenge-surface-detection']
+11.5s	11	
+11.5s	12	=== COMPETITION ===
+11.5s	13	['train_images', 'deprecated_train_labels', 'deprecated_train_images', 'train.csv', 'test.csv', 'train_labels', 'test_images']
+18.7s	14	Using device: cuda
+18.7s	15	GPU: Tesla T4
+18.7s	16	cuDNN benchmark: True
+18.7s	17	TIFF I/O: PIL-based (LZW compatible, no imagecodecs needed)
+18.7s	18	Running on KAGGLE
+18.7s	19	TRAIN_IMG_DIR: /kaggle/input/vesuvius-challenge-surface-detection/deprecated_train_images - exists: True
+18.7s	20	TRAIN_LBL_DIR: /kaggle/input/vesuvius-challenge-surface-detection/deprecated_train_labels - exists: True
+18.7s	21	TEST_IMG_DIR: /kaggle/input/vesuvius-challenge-surface-detection/test_images - exists: True
+18.9s	22	Found 20 training images
+18.9s	23	Example IDs: ['1407735', '1641318781', '1924200298', '1951193117', '2075542469']
+20.1s	24	
+20.1s	25	Train mask dtype: uint8
+20.1s	26	Train mask unique values (first up to 20): [0 1], count: 2
+20.1s	27	Train mask max value: 1
+20.1s	28	✅ Per-volume normalization utilities defined!
+20.1s	29	   - Computes stats once per volume (not per patch)
+20.1s	30	   - Ensures train/test consistency
+20.1s	31	   - Expected: +2-5% Dice improvement
+20.2s	32	PRODUCTION Dataset: ALL volumes pre-loaded in RAM!
+20.2s	33	   - Zero disk I/O during training
+20.2s	34	   - Per-volume normalization
+20.2s	35	   - Expected: Much higher GPU utilization
+20.2s	36	✅ ResidualUNet with SE-CBAM-ASPP attention defined!
+20.2s	37	   - SE: Squeeze-Excitation (channel attention)
+20.2s	38	   - CBAM: Convolutional Block Attention (channel + spatial)
+20.2s	39	   - ASPP: Atrous Spatial Pyramid Pooling (multi-scale)
+20.2s	40	✅ 8-Hour Sweet Spot Configuration:
+20.2s	41	   Total models: 2
+20.2s	42	   Training time: 5.10h
+20.2s	43	
+20.2s	44	  Model A: ResUNet+SE+ASPP
+20.2s	45	    Fold 0, seed 42, loss: combo
+20.2s	46	    Budget: 2.55h (153 min)
+20.2s	47	  Model B: ResUNet+CBAM+Tversky
+20.2s	48	    Fold 1, seed 1337, loss: tversky
+20.2s	49	    Budget: 2.55h (153 min)
+20.2s	50	
+20.2s	51	✅ Tversky loss defined (alpha=0.3, beta=0.7 for recall bias)
+20.2s	52	✅ Expected: Maximum diversity from architecture + loss differences
+20.2s	53	Hyperparameters configured (V2 - MORE TRAINING)!
+20.2s	54	   Physical batch size: 8
+20.2s	55	   Gradient accumulation steps: 2
+20.2s	56	   Effective batch size: 16
+20.2s	57	   Samples per epoch: 4000
+20.2s	58	   Num epochs: 15
+20.2s	59	   Inference batch size: 64
+20.2s	60	   N_FOLDS: 2 (8-hour sweet spot: 2 diverse models)
+20.3s	61	Fold 0: 10 train, 10 val
+20.3s	62	  Train: ['1924200298', '2075542469', '2376256768', '2573842867', '2996066940', '3012554500', '3215721649', '3241425466', '3398456664', '885379642']
+20.3s	63	  Val: ['1407735', '1641318781', '1951193117', '2268221981', '2791137336', '3110212378', '3470951309', '3518241476', '808135176', '862434992']
+20.3s	64	Fold 1: 10 train, 10 val
+20.3s	65	  Train: ['1407735', '1641318781', '1951193117', '2268221981', '2791137336', '3110212378', '3470951309', '3518241476', '808135176', '862434992']
+20.3s	66	  Val: ['1924200298', '2075542469', '2376256768', '2573842867', '2996066940', '3012554500', '3215721649', '3241425466', '3398456664', '885379642']
+20.3s	67	
+20.3s	68	✅ Created 2-fold CV splits
+20.3s	69	Loss functions, metrics, and validation utilities defined!
+20.3s	70	   - Validation includes negative patches (30% ratio)
+20.3s	71	   - Dice handles empty patches correctly (union==0 -> dice=1)
+20.3s	72	   - Validation volumes pre-loaded into RAM for zero I/O during patch loop
+20.3s	73	Training function defined (V2 - MORE TRAINING)!
+20.3s	74	   - SAMPLES_PER_EPOCH=4000, NUM_EPOCHS=15
+20.3s	75	   - max_patches=8000 (full validation)
+20.3s	76	   - num_workers=4 (optimized for Kaggle)
+20.3s	77	   - Time guard support (breaks training if pipeline runs long)
+20.4s	78	======================================================================
+20.4s	79	8-HOUR SWEET SPOT TRAINING PIPELINE
+20.4s	80	======================================================================
+20.4s	81	Strategy: 2 diverse models with max training time each
+20.4s	82	Time guard: training stops at 5.5h, hard limit at 8.75h
+20.4s	83	Remaining budget: ~2.75h for calibration + inference + postproc
+20.4s	84	======================================================================
+20.4s	85	
+20.4s	86	
+20.4s	87	######################################################################
+20.4s	88	# TRAINING: ResUNet+SE+ASPP (Model A)
+20.4s	89	######################################################################
+20.4s	90	
+20.4s	91	
+20.4s	92	======================================================================
+20.4s	93	MODEL: ResUNet+SE+ASPP | FOLD 0 | SEED 42
+20.4s	94	10 train, 10 val
+20.4s	95	======================================================================
+20.4s	96	Building deterministic validation patch index...
+68.2s	97	  Validation index: 8000 positive + 2400 negative patches
+68.2s	98	  Total after cap: 8000 from 10 volumes
+68.2s	99	Pre-loading ALL 10 volumes into RAM...
+75.8s	100	  1924200298: shape=(320, 320, 320), pos_voxels=26819398 (scanned & cached)
+83.1s	101	  2075542469: shape=(320, 320, 320), pos_voxels=25335333 (scanned & cached)
+91.3s	102	  2376256768: shape=(320, 320, 320), pos_voxels=30442256 (scanned & cached)
+94.6s	103	  2573842867: shape=(256, 256, 256), pos_voxels=10623925 (scanned & cached)
+102.7s	104	  2996066940: shape=(320, 320, 320), pos_voxels=29189692 (scanned & cached)
+109.3s	105	  3012554500: shape=(320, 320, 320), pos_voxels=19256951 (scanned & cached)
+116.8s	106	  3215721649: shape=(320, 320, 320), pos_voxels=27551517 (scanned & cached)
+124.6s	107	  3241425466: shape=(320, 320, 320), pos_voxels=28457368 (scanned & cached)
+128.2s	108	  3398456664: shape=(320, 320, 320), pos_voxels=6256102 (scanned & cached)
+135.7s	109	  885379642: shape=(320, 320, 320), pos_voxels=24974117 (scanned & cached)
+135.7s	110	
+135.7s	111	Dataset ready: ALL 10 volumes in RAM
+135.7s	112	  4000 samples/epoch
+135.7s	113	  Per-volume normalization: Consistent train/test stats
+135.7s	114	  Zero disk I/O during training (all in RAM)
+140.8s	115	
+140.8s	116	Starting training...
+140.8s	117	  Model: ResUNet+SE+ASPP (A)
+140.8s	118	  Loss: combo
+140.8s	119	  Seed: 42
+140.8s	120	  Effective batch size: 16
+140.8s	121	  Total steps: 7500, Warmup: 500
+162.2s	122	  Epoch 1/15 [50/500] loss=0.5563 lr=0.000010 time=0.04h
+173.9s	123	  Epoch 1/15 [100/500] loss=0.5518 lr=0.000020 time=0.04h
+185.8s	124	  Epoch 1/15 [150/500] loss=0.5450 lr=0.000030 time=0.05h
+197.9s	125	  Epoch 1/15 [200/500] loss=0.5373 lr=0.000040 time=0.05h
+210.2s	126	  Epoch 1/15 [250/500] loss=0.5256 lr=0.000050 time=0.05h
+222.7s	127	  Epoch 1/15 [300/500] loss=0.5160 lr=0.000060 time=0.06h
+235.5s	128	  Epoch 1/15 [350/500] loss=0.5050 lr=0.000070 time=0.06h
+248.5s	129	  Epoch 1/15 [400/500] loss=0.4951 lr=0.000080 time=0.06h
+261.8s	130	  Epoch 1/15 [450/500] loss=0.4864 lr=0.000090 time=0.07h
+275.5s	131	  Epoch 1/15 [500/500] loss=0.4794 lr=0.000100 time=0.07h
+275.5s	132	
+275.5s	133	  Validating...
+292.8s	134	    Loaded 10 validation volumes into RAM
+393.9s	135	  Epoch 1/15 - 253.0s (total: 0.10h)
+393.9s	136	    Train loss: 0.4794
+393.9s	137	    Val soft_dice: 0.5624
+394.2s	138	    Best model saved! (val_dice=0.5624)
+408.2s	139	  Epoch 2/15 [50/500] loss=0.4002 lr=0.000110 time=0.11h
+421.8s	140	  Epoch 2/15 [100/500] loss=0.3910 lr=0.000120 time=0.11h
+435.4s	141	  Epoch 2/15 [150/500] loss=0.3874 lr=0.000130 time=0.12h
+448.9s	142	  Epoch 2/15 [200/500] loss=0.3870 lr=0.000140 time=0.12h
+462.5s	143	  Epoch 2/15 [250/500] loss=0.3846 lr=0.000150 time=0.12h
+476.2s	144	  Epoch 2/15 [300/500] loss=0.3849 lr=0.000160 time=0.13h
+490.0s	145	  Epoch 2/15 [350/500] loss=0.3847 lr=0.000170 time=0.13h
+503.6s	146	  Epoch 2/15 [400/500] loss=0.3829 lr=0.000180 time=0.13h
+517.3s	147	  Epoch 2/15 [450/500] loss=0.3813 lr=0.000190 time=0.14h
+531.0s	148	  Epoch 2/15 [500/500] loss=0.3782 lr=0.000200 time=0.14h
+531.0s	149	
+531.0s	150	  Validating...
+548.2s	151	    Loaded 10 validation volumes into RAM
+647.6s	152	  Epoch 2/15 - 253.4s (total: 0.17h)
+647.6s	153	    Train loss: 0.3782
+647.6s	154	    Val soft_dice: 0.5655
+648.2s	155	    Best model saved! (val_dice=0.5655)
+662.0s	156	  Epoch 3/15 [50/500] loss=0.3522 lr=0.000200 time=0.18h
+675.7s	157	  Epoch 3/15 [100/500] loss=0.3583 lr=0.000200 time=0.18h
+689.4s	158	  Epoch 3/15 [150/500] loss=0.3532 lr=0.000200 time=0.19h
+703.0s	159	  Epoch 3/15 [200/500] loss=0.3471 lr=0.000200 time=0.19h
+716.5s	160	  Epoch 3/15 [250/500] loss=0.3420 lr=0.000200 time=0.19h
+730.1s	161	  Epoch 3/15 [300/500] loss=0.3400 lr=0.000200 time=0.20h
+743.7s	162	  Epoch 3/15 [350/500] loss=0.3408 lr=0.000200 time=0.20h
+757.4s	163	  Epoch 3/15 [400/500] loss=0.3388 lr=0.000200 time=0.20h
+771.1s	164	  Epoch 3/15 [450/500] loss=0.3380 lr=0.000199 time=0.21h
+784.8s	165	  Epoch 3/15 [500/500] loss=0.3387 lr=0.000199 time=0.21h
+784.8s	166	
+784.8s	167	  Validating...
+802.0s	168	    Loaded 10 validation volumes into RAM
+901.4s	169	  Epoch 3/15 - 253.2s (total: 0.24h)
+901.4s	170	    Train loss: 0.3387
+901.4s	171	    Val soft_dice: 0.5702
+901.9s	172	    Best model saved! (val_dice=0.5702)
+902.4s	173	  Hard negative mining ENABLED at step 1500
+915.8s	174	  Epoch 4/15 [50/500] loss=0.3334 lr=0.000199 time=0.25h
+929.5s	175	  Epoch 4/15 [100/500] loss=0.3366 lr=0.000199 time=0.25h
+943.1s	176	  Epoch 4/15 [150/500] loss=0.3382 lr=0.000199 time=0.26h
+956.7s	177	  Epoch 4/15 [200/500] loss=0.3390 lr=0.000199 time=0.26h
+970.2s	178	  Epoch 4/15 [250/500] loss=0.3374 lr=0.000199 time=0.26h
+983.8s	179	  Epoch 4/15 [300/500] loss=0.3375 lr=0.000198 time=0.27h
+997.4s	180	  Epoch 4/15 [350/500] loss=0.3352 lr=0.000198 time=0.27h
+1011.0s	181	  Epoch 4/15 [400/500] loss=0.3328 lr=0.000198 time=0.28h
+1024.6s	182	  Epoch 4/15 [450/500] loss=0.3305 lr=0.000198 time=0.28h
+1038.2s	183	  Epoch 4/15 [500/500] loss=0.3271 lr=0.000197 time=0.28h
+1038.2s	184	
+1038.2s	185	  Validating...
+1055.5s	186	    Loaded 10 validation volumes into RAM
+1154.9s	187	  Epoch 4/15 - 253.0s (total: 0.32h)
+1154.9s	188	    Train loss: 0.3271
+1154.9s	189	    Val soft_dice: 0.5761
+1155.4s	190	    Best model saved! (val_dice=0.5761)
+1169.3s	191	  Epoch 5/15 [50/500] loss=0.3264 lr=0.000197 time=0.32h
+1183.0s	192	  Epoch 5/15 [100/500] loss=0.3230 lr=0.000197 time=0.32h
+1196.6s	193	  Epoch 5/15 [150/500] loss=0.3210 lr=0.000197 time=0.33h
+1210.2s	194	  Epoch 5/15 [200/500] loss=0.3193 lr=0.000196 time=0.33h
+1223.8s	195	  Epoch 5/15 [250/500] loss=0.3186 lr=0.000196 time=0.33h
+1237.3s	196	  Epoch 5/15 [300/500] loss=0.3182 lr=0.000196 time=0.34h
+1251.0s	197	  Epoch 5/15 [350/500] loss=0.3199 lr=0.000195 time=0.34h
+1264.6s	198	  Epoch 5/15 [400/500] loss=0.3173 lr=0.000195 time=0.35h
+1278.3s	199	  Epoch 5/15 [450/500] loss=0.3146 lr=0.000195 time=0.35h
+1292.0s	200	  Epoch 5/15 [500/500] loss=0.3142 lr=0.000194 time=0.35h
+1292.0s	201	
+1292.0s	202	  Validating...
+1309.2s	203	    Loaded 10 validation volumes into RAM
+1408.5s	204	  Epoch 5/15 - 253.1s (total: 0.39h)
+1408.5s	205	    Train loss: 0.3142
+1408.5s	206	    Val soft_dice: 0.5832
+1409.0s	207	    Best model saved! (val_dice=0.5832)
+1422.8s	208	  Epoch 6/15 [50/500] loss=0.3110 lr=0.000194 time=0.39h
+1436.5s	209	  Epoch 6/15 [100/500] loss=0.3064 lr=0.000194 time=0.39h
+1450.2s	210	  Epoch 6/15 [150/500] loss=0.3098 lr=0.000193 time=0.40h
+1463.7s	211	  Epoch 6/15 [200/500] loss=0.3061 lr=0.000193 time=0.40h
+1477.2s	212	  Epoch 6/15 [250/500] loss=0.3061 lr=0.000192 time=0.40h
+1490.8s	213	  Epoch 6/15 [300/500] loss=0.3065 lr=0.000192 time=0.41h
+1504.5s	214	  Epoch 6/15 [350/500] loss=0.3052 lr=0.000192 time=0.41h
+1518.2s	215	  Epoch 6/15 [400/500] loss=0.3041 lr=0.000191 time=0.42h
+1531.9s	216	  Epoch 6/15 [450/500] loss=0.3023 lr=0.000191 time=0.42h
+1545.5s	217	  Epoch 6/15 [500/500] loss=0.2995 lr=0.000190 time=0.42h
+1545.5s	218	
+1545.5s	219	  Validating...
+1562.9s	220	    Loaded 10 validation volumes into RAM
+1662.3s	221	  Epoch 6/15 - 253.3s (total: 0.46h)
+1662.3s	222	    Train loss: 0.2995
+1662.3s	223	    Val soft_dice: 0.5903
+1662.8s	224	    Best model saved! (val_dice=0.5903)
+1676.7s	225	  Epoch 7/15 [50/500] loss=0.2972 lr=0.000190 time=0.46h
+1690.3s	226	  Epoch 7/15 [100/500] loss=0.3001 lr=0.000189 time=0.46h
+1703.9s	227	  Epoch 7/15 [150/500] loss=0.3053 lr=0.000189 time=0.47h
+1717.5s	228	  Epoch 7/15 [200/500] loss=0.3080 lr=0.000188 time=0.47h
+1731.0s	229	  Epoch 7/15 [250/500] loss=0.3053 lr=0.000188 time=0.48h
+1744.6s	230	  Epoch 7/15 [300/500] loss=0.3046 lr=0.000187 time=0.48h
+1758.2s	231	  Epoch 7/15 [350/500] loss=0.3029 lr=0.000186 time=0.48h
+1771.9s	232	  Epoch 7/15 [400/500] loss=0.3018 lr=0.000186 time=0.49h
+1785.5s	233	  Epoch 7/15 [450/500] loss=0.3015 lr=0.000185 time=0.49h
+1799.2s	234	  Epoch 7/15 [500/500] loss=0.2997 lr=0.000185 time=0.49h
+1799.2s	235	
+1799.2s	236	  Validating...
+1816.5s	237	    Loaded 10 validation volumes into RAM
+1915.7s	238	  Epoch 7/15 - 253.0s (total: 0.53h)
+1915.7s	239	    Train loss: 0.2997
+1915.7s	240	    Val soft_dice: 0.5965
+1916.2s	241	    Best model saved! (val_dice=0.5965)
+1930.1s	242	  Epoch 8/15 [50/500] loss=0.2902 lr=0.000184 time=0.53h
+1943.8s	243	  Epoch 8/15 [100/500] loss=0.2953 lr=0.000183 time=0.53h
+1957.4s	244	  Epoch 8/15 [150/500] loss=0.2981 lr=0.000183 time=0.54h
+1971.1s	245	  Epoch 8/15 [200/500] loss=0.2933 lr=0.000182 time=0.54h
+1984.7s	246	  Epoch 8/15 [250/500] loss=0.2923 lr=0.000182 time=0.55h
+1998.3s	247	  Epoch 8/15 [300/500] loss=0.2916 lr=0.000181 time=0.55h
+2011.9s	248	  Epoch 8/15 [350/500] loss=0.2920 lr=0.000180 time=0.55h
+2025.5s	249	  Epoch 8/15 [400/500] loss=0.2889 lr=0.000180 time=0.56h
+2039.1s	250	  Epoch 8/15 [450/500] loss=0.2888 lr=0.000179 time=0.56h
+2052.7s	251	  Epoch 8/15 [500/500] loss=0.2898 lr=0.000178 time=0.56h
+2052.7s	252	
+2052.7s	253	  Validating...
+2070.0s	254	    Loaded 10 validation volumes into RAM
+2169.1s	255	  Epoch 8/15 - 252.9s (total: 0.60h)
+2169.1s	256	    Train loss: 0.2898
+2169.1s	257	    Val soft_dice: 0.6014
+2169.6s	258	    Best model saved! (val_dice=0.6014)
+2183.5s	259	  Epoch 9/15 [50/500] loss=0.2805 lr=0.000177 time=0.60h
+2197.2s	260	  Epoch 9/15 [100/500] loss=0.2883 lr=0.000177 time=0.60h
+2210.9s	261	  Epoch 9/15 [150/500] loss=0.2822 lr=0.000176 time=0.61h
+2224.5s	262	  Epoch 9/15 [200/500] loss=0.2800 lr=0.000175 time=0.61h
+2238.0s	263	  Epoch 9/15 [250/500] loss=0.2802 lr=0.000175 time=0.62h
+2251.6s	264	  Epoch 9/15 [300/500] loss=0.2820 lr=0.000174 time=0.62h
+2265.2s	265	  Epoch 9/15 [350/500] loss=0.2808 lr=0.000173 time=0.62h
+2278.8s	266	  Epoch 9/15 [400/500] loss=0.2812 lr=0.000172 time=0.63h
+2292.5s	267	  Epoch 9/15 [450/500] loss=0.2796 lr=0.000171 time=0.63h
+2306.1s	268	  Epoch 9/15 [500/500] loss=0.2789 lr=0.000171 time=0.63h
+2306.1s	269	
+2306.1s	270	  Validating...
+2323.4s	271	    Loaded 10 validation volumes into RAM
+2422.7s	272	  Epoch 9/15 - 253.0s (total: 0.67h)
+2422.7s	273	    Train loss: 0.2789
+2422.7s	274	    Val soft_dice: 0.6064
+2423.2s	275	    Best model saved! (val_dice=0.6064)
+2437.0s	276	  Epoch 10/15 [50/500] loss=0.2808 lr=0.000170 time=0.67h
+2450.7s	277	  Epoch 10/15 [100/500] loss=0.2741 lr=0.000169 time=0.68h
+2464.3s	278	  Epoch 10/15 [150/500] loss=0.2678 lr=0.000168 time=0.68h
+2477.9s	279	  Epoch 10/15 [200/500] loss=0.2671 lr=0.000167 time=0.68h
+2491.5s	280	  Epoch 10/15 [250/500] loss=0.2682 lr=0.000167 time=0.69h
+2505.1s	281	  Epoch 10/15 [300/500] loss=0.2663 lr=0.000166 time=0.69h
+2518.7s	282	  Epoch 10/15 [350/500] loss=0.2635 lr=0.000165 time=0.69h
+2532.3s	283	  Epoch 10/15 [400/500] loss=0.2640 lr=0.000164 time=0.70h
+2545.9s	284	  Epoch 10/15 [450/500] loss=0.2658 lr=0.000163 time=0.70h
+2559.5s	285	  Epoch 10/15 [500/500] loss=0.2664 lr=0.000162 time=0.71h
+2559.5s	286	
+2559.5s	287	  Validating...
+2576.7s	288	    Loaded 10 validation volumes into RAM
+2675.9s	289	  Epoch 10/15 - 252.7s (total: 0.74h)
+2675.9s	290	    Train loss: 0.2664
+2675.9s	291	    Val soft_dice: 0.6427
+2676.4s	292	    Best model saved! (val_dice=0.6427)
+2690.2s	293	  Epoch 11/15 [50/500] loss=0.2618 lr=0.000161 time=0.74h
+2703.8s	294	  Epoch 11/15 [100/500] loss=0.2580 lr=0.000161 time=0.75h
+2717.5s	295	  Epoch 11/15 [150/500] loss=0.2601 lr=0.000160 time=0.75h
+2731.1s	296	  Epoch 11/15 [200/500] loss=0.2609 lr=0.000159 time=0.75h
+2744.8s	297	  Epoch 11/15 [250/500] loss=0.2621 lr=0.000158 time=0.76h
+2758.3s	298	  Epoch 11/15 [300/500] loss=0.2630 lr=0.000157 time=0.76h
+2771.9s	299	  Epoch 11/15 [350/500] loss=0.2631 lr=0.000156 time=0.76h
+2785.5s	300	  Epoch 11/15 [400/500] loss=0.2631 lr=0.000155 time=0.77h
+2799.1s	301	  Epoch 11/15 [450/500] loss=0.2644 lr=0.000154 time=0.77h
+2812.7s	302	  Epoch 11/15 [500/500] loss=0.2631 lr=0.000153 time=0.78h
+2812.7s	303	
+2812.7s	304	  Validating...
+2830.1s	305	    Loaded 10 validation volumes into RAM
+2929.3s	306	  Epoch 11/15 - 252.9s (total: 0.81h)
+2929.3s	307	    Train loss: 0.2631
+2929.3s	308	    Val soft_dice: 0.7408
+2929.8s	309	    Best model saved! (val_dice=0.7408)
+2943.6s	310	  Epoch 12/15 [50/500] loss=0.2518 lr=0.000152 time=0.81h
+2957.3s	311	  Epoch 12/15 [100/500] loss=0.2551 lr=0.000151 time=0.82h
+2971.0s	312	  Epoch 12/15 [150/500] loss=0.2511 lr=0.000150 time=0.82h
+2984.6s	313	  Epoch 12/15 [200/500] loss=0.2526 lr=0.000149 time=0.82h
+2998.1s	314	  Epoch 12/15 [250/500] loss=0.2576 lr=0.000148 time=0.83h
+3011.7s	315	  Epoch 12/15 [300/500] loss=0.2577 lr=0.000147 time=0.83h
+3025.3s	316	  Epoch 12/15 [350/500] loss=0.2578 lr=0.000146 time=0.83h
+3038.9s	317	  Epoch 12/15 [400/500] loss=0.2554 lr=0.000145 time=0.84h
+3052.5s	318	  Epoch 12/15 [450/500] loss=0.2556 lr=0.000144 time=0.84h
+3066.2s	319	  Epoch 12/15 [500/500] loss=0.2570 lr=0.000143 time=0.85h
+3066.2s	320	
+3066.2s	321	  Validating...
+3083.5s	322	    Loaded 10 validation volumes into RAM
+3182.9s	323	  Epoch 12/15 - 253.1s (total: 0.88h)
+3182.9s	324	    Train loss: 0.2570
+3182.9s	325	    Val soft_dice: 0.7669
+3183.4s	326	    Best model saved! (val_dice=0.7669)
+3197.3s	327	  Epoch 13/15 [50/500] loss=0.2750 lr=0.000142 time=0.88h
+3211.0s	328	  Epoch 13/15 [100/500] loss=0.2609 lr=0.000141 time=0.89h
+3224.6s	329	  Epoch 13/15 [150/500] loss=0.2590 lr=0.000140 time=0.89h
+3238.2s	330	  Epoch 13/15 [200/500] loss=0.2591 lr=0.000139 time=0.89h
+3251.8s	331	  Epoch 13/15 [250/500] loss=0.2580 lr=0.000138 time=0.90h
+3265.4s	332	  Epoch 13/15 [300/500] loss=0.2567 lr=0.000137 time=0.90h
+3279.0s	333	  Epoch 13/15 [350/500] loss=0.2543 lr=0.000136 time=0.91h
+3292.6s	334	  Epoch 13/15 [400/500] loss=0.2541 lr=0.000135 time=0.91h
+3306.3s	335	  Epoch 13/15 [450/500] loss=0.2539 lr=0.000134 time=0.91h
+3319.9s	336	  Epoch 13/15 [500/500] loss=0.2545 lr=0.000133 time=0.92h
+3319.9s	337	
+3319.9s	338	  Validating...
+3337.2s	339	    Loaded 10 validation volumes into RAM
+3436.4s	340	  Epoch 13/15 - 252.9s (total: 0.95h)
+3436.4s	341	    Train loss: 0.2545
+3436.4s	342	    Val soft_dice: 0.7682
+3436.9s	343	    Best model saved! (val_dice=0.7682)
+3450.9s	344	  Epoch 14/15 [50/500] loss=0.2310 lr=0.000132 time=0.95h
+3464.6s	345	  Epoch 14/15 [100/500] loss=0.2411 lr=0.000131 time=0.96h
+3478.3s	346	  Epoch 14/15 [150/500] loss=0.2437 lr=0.000130 time=0.96h
+3491.8s	347	  Epoch 14/15 [200/500] loss=0.2427 lr=0.000129 time=0.96h
+3505.3s	348	  Epoch 14/15 [250/500] loss=0.2467 lr=0.000128 time=0.97h
+3519.0s	349	  Epoch 14/15 [300/500] loss=0.2487 lr=0.000127 time=0.97h
+3532.7s	350	  Epoch 14/15 [350/500] loss=0.2482 lr=0.000126 time=0.98h
+3546.4s	351	  Epoch 14/15 [400/500] loss=0.2496 lr=0.000124 time=0.98h
+3560.1s	352	  Epoch 14/15 [450/500] loss=0.2495 lr=0.000123 time=0.98h
+3573.7s	353	  Epoch 14/15 [500/500] loss=0.2486 lr=0.000122 time=0.99h
+3573.7s	354	
+3573.7s	355	  Validating...
+3591.0s	356	    Loaded 10 validation volumes into RAM
+3690.4s	357	  Epoch 14/15 - 253.6s (total: 1.02h)
+3690.4s	358	    Train loss: 0.2486
+3690.4s	359	    Val soft_dice: 0.7683
+3690.9s	360	    Best model saved! (val_dice=0.7683)
+3704.8s	361	  Epoch 15/15 [50/500] loss=0.2530 lr=0.000121 time=1.02h
+3718.5s	362	  Epoch 15/15 [100/500] loss=0.2478 lr=0.000120 time=1.03h
+3732.2s	363	  Epoch 15/15 [150/500] loss=0.2505 lr=0.000119 time=1.03h
+3745.7s	364	  Epoch 15/15 [200/500] loss=0.2493 lr=0.000118 time=1.03h
+3759.3s	365	  Epoch 15/15 [250/500] loss=0.2465 lr=0.000117 time=1.04h
+3772.9s	366	  Epoch 15/15 [300/500] loss=0.2495 lr=0.000116 time=1.04h
+3786.5s	367	  Epoch 15/15 [350/500] loss=0.2504 lr=0.000115 time=1.05h
+3800.1s	368	  Epoch 15/15 [400/500] loss=0.2488 lr=0.000113 time=1.05h
+3813.7s	369	  Epoch 15/15 [450/500] loss=0.2492 lr=0.000112 time=1.05h
+3827.4s	370	  Epoch 15/15 [500/500] loss=0.2480 lr=0.000111 time=1.06h
+3827.4s	371	
+3827.4s	372	  Validating...
+3844.7s	373	    Loaded 10 validation volumes into RAM
+3943.9s	374	  Epoch 15/15 - 253.0s (total: 1.09h)
+3943.9s	375	    Train loss: 0.2480
+3943.9s	376	    Val soft_dice: 0.7683
+3944.5s	377	    Best model saved! (val_dice=0.7683)
+3944.5s	378	
+3944.5s	379	ResUNet+SE+ASPP complete! Best val_dice: 0.7683
+3944.5s	380	   Training time: 1.09h
+3944.5s	381	
+3944.5s	382	ResUNet+SE+ASPP complete!
+3944.5s	383	   Val Dice: 0.7683
+3944.5s	384	   Training time: 1.09h
+3944.5s	385	   Pipeline elapsed: 1.09h / 8.75h limit
+3944.5s	386	
+3944.5s	387	######################################################################
+3944.5s	388	# TRAINING: ResUNet+CBAM+Tversky (Model B)
+3944.5s	389	######################################################################
+3944.5s	390	
+3944.7s	391	
+3944.7s	392	======================================================================
+3944.7s	393	MODEL: ResUNet+CBAM+Tversky | FOLD 1 | SEED 1337
+3944.7s	394	10 train, 10 val
+3944.7s	395	======================================================================
+3944.7s	396	Building deterministic validation patch index...
+3984.8s	397	  Validation index: 8000 positive + 2400 negative patches
+3984.8s	398	  Total after cap: 8000 from 10 volumes
+3984.8s	399	Pre-loading ALL 10 volumes into RAM...
+3988.2s	400	  1407735: shape=(320, 320, 320), pos_voxels=5300493 (scanned & cached)
+3994.4s	401	  1641318781: shape=(320, 320, 320), pos_voxels=21648179 (scanned & cached)
+4001.6s	402	  1951193117: shape=(320, 320, 320), pos_voxels=28996293 (scanned & cached)
+4008.3s	403	  2268221981: shape=(320, 320, 320), pos_voxels=26246262 (scanned & cached)
+4015.9s	404	  2791137336: shape=(320, 320, 320), pos_voxels=29879686 (scanned & cached)
+4021.1s	405	  3110212378: shape=(320, 320, 320), pos_voxels=14915750 (scanned & cached)
+4028.2s	406	  3470951309: shape=(320, 320, 320), pos_voxels=28462644 (scanned & cached)
+4033.2s	407	  3518241476: shape=(320, 320, 320), pos_voxels=12943633 (scanned & cached)
+4039.1s	408	  808135176: shape=(320, 320, 320), pos_voxels=20487937 (scanned & cached)
+4045.3s	409	  862434992: shape=(320, 320, 320), pos_voxels=24467958 (scanned & cached)
+4045.3s	410	
+4045.3s	411	Dataset ready: ALL 10 volumes in RAM
+4045.3s	412	  4000 samples/epoch
+4045.3s	413	  Per-volume normalization: Consistent train/test stats
+4045.3s	414	  Zero disk I/O during training (all in RAM)
+4045.3s	415	
+4045.3s	416	Starting training...
+4045.3s	417	  Model: ResUNet+CBAM+Tversky (B)
+4045.3s	418	  Loss: tversky
+4045.3s	419	  Seed: 1337
+4045.3s	420	  Effective batch size: 16
+4045.3s	421	  Total steps: 7500, Warmup: 500
+4060.2s	422	  Epoch 1/15 [50/500] loss=0.5515 lr=0.000010 time=0.03h
+4074.5s	423	  Epoch 1/15 [100/500] loss=0.5474 lr=0.000020 time=0.04h
+4089.2s	424	  Epoch 1/15 [150/500] loss=0.5417 lr=0.000030 time=0.04h
+4103.6s	425	  Epoch 1/15 [200/500] loss=0.5343 lr=0.000040 time=0.04h
+4117.6s	426	  Epoch 1/15 [250/500] loss=0.5286 lr=0.000050 time=0.05h
+4131.6s	427	  Epoch 1/15 [300/500] loss=0.5182 lr=0.000060 time=0.05h
+4145.7s	428	  Epoch 1/15 [350/500] loss=0.5071 lr=0.000070 time=0.06h
+4159.9s	429	  Epoch 1/15 [400/500] loss=0.4976 lr=0.000080 time=0.06h
+4174.1s	430	  Epoch 1/15 [450/500] loss=0.4886 lr=0.000090 time=0.06h
+4188.3s	431	  Epoch 1/15 [500/500] loss=0.4813 lr=0.000100 time=0.07h
+4188.3s	432	
+4188.3s	433	  Validating...
+4205.5s	434	    Loaded 10 validation volumes into RAM
+4354.0s	435	  Epoch 1/15 - 308.4s (total: 0.11h)
+4354.0s	436	    Train loss: 0.4813
+4354.0s	437	    Val soft_dice: 0.5932
+4354.0s	438	    Best model saved! (val_dice=0.5932)
+4368.3s	439	  Epoch 2/15 [50/500] loss=0.3931 lr=0.000110 time=0.12h
+4382.3s	440	  Epoch 2/15 [100/500] loss=0.3908 lr=0.000120 time=0.12h
+4396.5s	441	  Epoch 2/15 [150/500] loss=0.3870 lr=0.000130 time=0.13h
+4410.6s	442	  Epoch 2/15 [200/500] loss=0.3874 lr=0.000140 time=0.13h
+4424.8s	443	  Epoch 2/15 [250/500] loss=0.3852 lr=0.000150 time=0.13h
+4439.0s	444	  Epoch 2/15 [300/500] loss=0.3829 lr=0.000160 time=0.14h
+4453.1s	445	  Epoch 2/15 [350/500] loss=0.3785 lr=0.000170 time=0.14h
+4467.3s	446	  Epoch 2/15 [400/500] loss=0.3751 lr=0.000180 time=0.15h
+4481.5s	447	  Epoch 2/15 [450/500] loss=0.3722 lr=0.000190 time=0.15h
+4495.6s	448	  Epoch 2/15 [500/500] loss=0.3706 lr=0.000200 time=0.15h
+4495.6s	449	
+4495.6s	450	  Validating...
+4512.8s	451	    Loaded 10 validation volumes into RAM
+4661.7s	452	  Epoch 2/15 - 307.4s (total: 0.20h)
+4661.7s	453	    Train loss: 0.3706
+4661.7s	454	    Val soft_dice: 0.5956
+4661.9s	455	    Best model saved! (val_dice=0.5956)
+4676.0s	456	  Epoch 3/15 [50/500] loss=0.3580 lr=0.000200 time=0.20h
+4689.9s	457	  Epoch 3/15 [100/500] loss=0.3510 lr=0.000200 time=0.21h
+4704.1s	458	  Epoch 3/15 [150/500] loss=0.3434 lr=0.000200 time=0.21h
+4718.3s	459	  Epoch 3/15 [200/500] loss=0.3448 lr=0.000200 time=0.21h
+4732.5s	460	  Epoch 3/15 [250/500] loss=0.3431 lr=0.000200 time=0.22h
+4746.6s	461	  Epoch 3/15 [300/500] loss=0.3434 lr=0.000200 time=0.22h
+4760.7s	462	  Epoch 3/15 [350/500] loss=0.3441 lr=0.000200 time=0.23h
+4774.9s	463	  Epoch 3/15 [400/500] loss=0.3435 lr=0.000200 time=0.23h
+4789.1s	464	  Epoch 3/15 [450/500] loss=0.3434 lr=0.000199 time=0.23h
+4803.2s	465	  Epoch 3/15 [500/500] loss=0.3419 lr=0.000199 time=0.24h
+4803.2s	466	
+4803.2s	467	  Validating...
+4820.3s	468	    Loaded 10 validation volumes into RAM
+4969.3s	469	  Epoch 3/15 - 307.4s (total: 0.28h)
+4969.3s	470	    Train loss: 0.3419
+4969.3s	471	    Val soft_dice: 0.6000
+4969.5s	472	    Best model saved! (val_dice=0.6000)
+4969.9s	473	  Hard negative mining ENABLED at step 1500
+4983.5s	474	  Epoch 4/15 [50/500] loss=0.3427 lr=0.000199 time=0.29h
+4997.6s	475	  Epoch 4/15 [100/500] loss=0.3409 lr=0.000199 time=0.29h
+5011.8s	476	  Epoch 4/15 [150/500] loss=0.3370 lr=0.000199 time=0.30h
+5026.0s	477	  Epoch 4/15 [200/500] loss=0.3348 lr=0.000199 time=0.30h
+5040.1s	478	  Epoch 4/15 [250/500] loss=0.3332 lr=0.000199 time=0.30h
+5054.3s	479	  Epoch 4/15 [300/500] loss=0.3334 lr=0.000198 time=0.31h
+5068.5s	480	  Epoch 4/15 [350/500] loss=0.3327 lr=0.000198 time=0.31h
+5082.6s	481	  Epoch 4/15 [400/500] loss=0.3325 lr=0.000198 time=0.32h
+5096.9s	482	  Epoch 4/15 [450/500] loss=0.3331 lr=0.000198 time=0.32h
+5111.0s	483	  Epoch 4/15 [500/500] loss=0.3338 lr=0.000197 time=0.32h
+5111.0s	484	
+5111.0s	485	  Validating...
+5128.2s	486	    Loaded 10 validation volumes into RAM
+5277.2s	487	  Epoch 4/15 - 307.6s (total: 0.37h)
+5277.2s	488	    Train loss: 0.3338
+5277.2s	489	    Val soft_dice: 0.6057
+5277.3s	490	    Best model saved! (val_dice=0.6057)
+5291.5s	491	  Epoch 5/15 [50/500] loss=0.3382 lr=0.000197 time=0.37h
+5305.6s	492	  Epoch 5/15 [100/500] loss=0.3448 lr=0.000197 time=0.38h
+5319.8s	493	  Epoch 5/15 [150/500] loss=0.3439 lr=0.000197 time=0.38h
+5333.9s	494	  Epoch 5/15 [200/500] loss=0.3393 lr=0.000196 time=0.39h
+5348.1s	495	  Epoch 5/15 [250/500] loss=0.3392 lr=0.000196 time=0.39h
+5362.3s	496	  Epoch 5/15 [300/500] loss=0.3374 lr=0.000196 time=0.39h
+5376.4s	497	  Epoch 5/15 [350/500] loss=0.3375 lr=0.000195 time=0.40h
+5390.6s	498	  Epoch 5/15 [400/500] loss=0.3382 lr=0.000195 time=0.40h
+5404.8s	499	  Epoch 5/15 [450/500] loss=0.3389 lr=0.000195 time=0.41h
+5418.9s	500	  Epoch 5/15 [500/500] loss=0.3367 lr=0.000194 time=0.41h
+5418.9s	501	
+5418.9s	502	  Validating...
+5435.9s	503	    Loaded 10 validation volumes into RAM
+5585.2s	504	  Epoch 5/15 - 307.7s (total: 0.46h)
+5585.2s	505	    Train loss: 0.3367
+5585.2s	506	    Val soft_dice: 0.6118
+5585.3s	507	    Best model saved! (val_dice=0.6118)
+5599.5s	508	  Epoch 6/15 [50/500] loss=0.3273 lr=0.000194 time=0.46h
+5613.5s	509	  Epoch 6/15 [100/500] loss=0.3254 lr=0.000194 time=0.46h
+5627.6s	510	  Epoch 6/15 [150/500] loss=0.3285 lr=0.000193 time=0.47h
+5641.8s	511	  Epoch 6/15 [200/500] loss=0.3271 lr=0.000193 time=0.47h
+5656.0s	512	  Epoch 6/15 [250/500] loss=0.3210 lr=0.000192 time=0.48h
+5670.2s	513	  Epoch 6/15 [300/500] loss=0.3221 lr=0.000192 time=0.48h
+5684.3s	514	  Epoch 6/15 [350/500] loss=0.3229 lr=0.000192 time=0.48h
+5698.5s	515	  Epoch 6/15 [400/500] loss=0.3227 lr=0.000191 time=0.49h
+5712.7s	516	  Epoch 6/15 [450/500] loss=0.3233 lr=0.000191 time=0.49h
+5726.9s	517	  Epoch 6/15 [500/500] loss=0.3225 lr=0.000190 time=0.50h
+5726.9s	518	
+5726.9s	519	  Validating...
+5743.9s	520	    Loaded 10 validation volumes into RAM
+5892.7s	521	  Epoch 6/15 - 307.3s (total: 0.54h)
+5892.7s	522	    Train loss: 0.3225
+5892.7s	523	    Val soft_dice: 0.6183
+5892.9s	524	    Best model saved! (val_dice=0.6183)
+5907.0s	525	  Epoch 7/15 [50/500] loss=0.3229 lr=0.000190 time=0.55h
+5921.0s	526	  Epoch 7/15 [100/500] loss=0.3239 lr=0.000189 time=0.55h
+5935.2s	527	  Epoch 7/15 [150/500] loss=0.3209 lr=0.000189 time=0.55h
+5949.3s	528	  Epoch 7/15 [200/500] loss=0.3180 lr=0.000188 time=0.56h
+5963.5s	529	  Epoch 7/15 [250/500] loss=0.3150 lr=0.000188 time=0.56h
+5977.7s	530	  Epoch 7/15 [300/500] loss=0.3132 lr=0.000187 time=0.56h
+5991.8s	531	  Epoch 7/15 [350/500] loss=0.3133 lr=0.000186 time=0.57h
+6006.0s	532	  Epoch 7/15 [400/500] loss=0.3131 lr=0.000186 time=0.57h
+6020.2s	533	  Epoch 7/15 [450/500] loss=0.3133 lr=0.000185 time=0.58h
+6034.3s	534	  Epoch 7/15 [500/500] loss=0.3149 lr=0.000185 time=0.58h
+6034.3s	535	
+6034.3s	536	  Validating...
+6051.4s	537	    Loaded 10 validation volumes into RAM
+6200.4s	538	  Epoch 7/15 - 307.4s (total: 0.63h)
+6200.4s	539	    Train loss: 0.3149
+6200.4s	540	    Val soft_dice: 0.6247
+6200.6s	541	    Best model saved! (val_dice=0.6247)
+6214.7s	542	  Epoch 8/15 [50/500] loss=0.3048 lr=0.000184 time=0.63h
+6228.6s	543	  Epoch 8/15 [100/500] loss=0.3049 lr=0.000183 time=0.63h
+6242.8s	544	  Epoch 8/15 [150/500] loss=0.3068 lr=0.000183 time=0.64h
+6257.0s	545	  Epoch 8/15 [200/500] loss=0.3075 lr=0.000182 time=0.64h
+6271.2s	546	  Epoch 8/15 [250/500] loss=0.3077 lr=0.000182 time=0.65h
+6285.3s	547	  Epoch 8/15 [300/500] loss=0.3106 lr=0.000181 time=0.65h
+6299.4s	548	  Epoch 8/15 [350/500] loss=0.3123 lr=0.000180 time=0.65h
+6313.6s	549	  Epoch 8/15 [400/500] loss=0.3132 lr=0.000180 time=0.66h
+6327.8s	550	  Epoch 8/15 [450/500] loss=0.3110 lr=0.000179 time=0.66h
+6342.0s	551	  Epoch 8/15 [500/500] loss=0.3102 lr=0.000178 time=0.67h
+6342.0s	552	
+6342.0s	553	  Validating...
+6358.9s	554	    Loaded 10 validation volumes into RAM
+6508.1s	555	  Epoch 8/15 - 307.5s (total: 0.71h)
+6508.1s	556	    Train loss: 0.3102
+6508.1s	557	    Val soft_dice: 0.6308
+6508.4s	558	    Best model saved! (val_dice=0.6308)
+6522.5s	559	  Epoch 9/15 [50/500] loss=0.2962 lr=0.000177 time=0.72h
+6536.6s	560	  Epoch 9/15 [100/500] loss=0.2986 lr=0.000177 time=0.72h
+6550.8s	561	  Epoch 9/15 [150/500] loss=0.3023 lr=0.000176 time=0.72h
+6564.9s	562	  Epoch 9/15 [200/500] loss=0.3044 lr=0.000175 time=0.73h
+6579.1s	563	  Epoch 9/15 [250/500] loss=0.3077 lr=0.000175 time=0.73h
+6593.3s	564	  Epoch 9/15 [300/500] loss=0.3092 lr=0.000174 time=0.74h
+6607.4s	565	  Epoch 9/15 [350/500] loss=0.3091 lr=0.000173 time=0.74h
+6621.6s	566	  Epoch 9/15 [400/500] loss=0.3094 lr=0.000172 time=0.74h
+6635.7s	567	  Epoch 9/15 [450/500] loss=0.3086 lr=0.000171 time=0.75h
+6649.9s	568	  Epoch 9/15 [500/500] loss=0.3083 lr=0.000171 time=0.75h
+6649.9s	569	
+6649.9s	570	  Validating...
+6666.9s	571	    Loaded 10 validation volumes into RAM
+6815.8s	572	  Epoch 9/15 - 307.4s (total: 0.80h)
+6815.8s	573	    Train loss: 0.3083
+6815.8s	574	    Val soft_dice: 0.6370
+6816.0s	575	    Best model saved! (val_dice=0.6370)
+6830.2s	576	  Epoch 10/15 [50/500] loss=0.2966 lr=0.000170 time=0.80h
+6844.1s	577	  Epoch 10/15 [100/500] loss=0.3048 lr=0.000169 time=0.81h
+6858.3s	578	  Epoch 10/15 [150/500] loss=0.3009 lr=0.000168 time=0.81h
+6872.5s	579	  Epoch 10/15 [200/500] loss=0.2990 lr=0.000167 time=0.81h
+6886.6s	580	  Epoch 10/15 [250/500] loss=0.2993 lr=0.000167 time=0.82h
+6900.8s	581	  Epoch 10/15 [300/500] loss=0.3022 lr=0.000166 time=0.82h
+6914.9s	582	  Epoch 10/15 [350/500] loss=0.3032 lr=0.000165 time=0.83h
+6929.1s	583	  Epoch 10/15 [400/500] loss=0.3025 lr=0.000164 time=0.83h
+6943.3s	584	  Epoch 10/15 [450/500] loss=0.3027 lr=0.000163 time=0.83h
+6957.4s	585	  Epoch 10/15 [500/500] loss=0.3031 lr=0.000162 time=0.84h
+6957.4s	586	
+6957.4s	587	  Validating...
+6974.5s	588	    Loaded 10 validation volumes into RAM
+7123.4s	589	  Epoch 10/15 - 307.3s (total: 0.88h)
+7123.4s	590	    Train loss: 0.3031
+7123.4s	591	    Val soft_dice: 0.6437
+7123.6s	592	    Best model saved! (val_dice=0.6437)
+7137.7s	593	  Epoch 11/15 [50/500] loss=0.3006 lr=0.000161 time=0.89h
+7151.8s	594	  Epoch 11/15 [100/500] loss=0.3000 lr=0.000161 time=0.89h
+7166.0s	595	  Epoch 11/15 [150/500] loss=0.3030 lr=0.000160 time=0.89h
+7180.1s	596	  Epoch 11/15 [200/500] loss=0.3057 lr=0.000159 time=0.90h
+7194.3s	597	  Epoch 11/15 [250/500] loss=0.3055 lr=0.000158 time=0.90h
+7208.5s	598	  Epoch 11/15 [300/500] loss=0.3041 lr=0.000157 time=0.91h
+7222.6s	599	  Epoch 11/15 [350/500] loss=0.3034 lr=0.000156 time=0.91h
+7236.8s	600	  Epoch 11/15 [400/500] loss=0.3022 lr=0.000155 time=0.91h
+7251.0s	601	  Epoch 11/15 [450/500] loss=0.3026 lr=0.000154 time=0.92h
+7265.2s	602	  Epoch 11/15 [500/500] loss=0.3021 lr=0.000153 time=0.92h
+7265.2s	603	
+7265.2s	604	  Validating...
+7282.3s	605	    Loaded 10 validation volumes into RAM
+7430.9s	606	  Epoch 11/15 - 307.3s (total: 0.97h)
+7430.9s	607	    Train loss: 0.3021
+7430.9s	608	    Val soft_dice: 0.6506
+7431.2s	609	    Best model saved! (val_dice=0.6506)
+7445.4s	610	  Epoch 12/15 [50/500] loss=0.2903 lr=0.000152 time=0.97h
+7459.4s	611	  Epoch 12/15 [100/500] loss=0.2908 lr=0.000151 time=0.98h
+7473.6s	612	  Epoch 12/15 [150/500] loss=0.2945 lr=0.000150 time=0.98h
+7487.8s	613	  Epoch 12/15 [200/500] loss=0.2951 lr=0.000149 time=0.98h
+7502.0s	614	  Epoch 12/15 [250/500] loss=0.2983 lr=0.000148 time=0.99h
+7516.1s	615	  Epoch 12/15 [300/500] loss=0.2969 lr=0.000147 time=0.99h
+7530.2s	616	  Epoch 12/15 [350/500] loss=0.2969 lr=0.000146 time=1.00h
+7544.4s	617	  Epoch 12/15 [400/500] loss=0.2959 lr=0.000145 time=1.00h
+7558.5s	618	  Epoch 12/15 [450/500] loss=0.2974 lr=0.000144 time=1.00h
+7572.7s	619	  Epoch 12/15 [500/500] loss=0.2972 lr=0.000143 time=1.01h
+7572.7s	620	
+7572.7s	621	  Validating...
+7589.8s	622	    Loaded 10 validation volumes into RAM
+7738.2s	623	  Epoch 12/15 - 306.9s (total: 1.05h)
+7738.2s	624	    Train loss: 0.2972
+7738.2s	625	    Val soft_dice: 0.6597
+7738.3s	626	    Best model saved! (val_dice=0.6597)
+7752.5s	627	  Epoch 13/15 [50/500] loss=0.2964 lr=0.000142 time=1.06h
+7766.4s	628	  Epoch 13/15 [100/500] loss=0.2965 lr=0.000141 time=1.06h
+7780.6s	629	  Epoch 13/15 [150/500] loss=0.2943 lr=0.000140 time=1.07h
+7794.8s	630	  Epoch 13/15 [200/500] loss=0.2942 lr=0.000139 time=1.07h
+7809.0s	631	  Epoch 13/15 [250/500] loss=0.2941 lr=0.000138 time=1.07h
+7823.2s	632	  Epoch 13/15 [300/500] loss=0.2936 lr=0.000137 time=1.08h
+7837.2s	633	  Epoch 13/15 [350/500] loss=0.2923 lr=0.000136 time=1.08h
+7851.4s	634	  Epoch 13/15 [400/500] loss=0.2928 lr=0.000135 time=1.09h
+7865.6s	635	  Epoch 13/15 [450/500] loss=0.2920 lr=0.000134 time=1.09h
+7879.8s	636	  Epoch 13/15 [500/500] loss=0.2905 lr=0.000133 time=1.09h
+7879.8s	637	
+7879.8s	638	  Validating...
+7896.8s	639	    Loaded 10 validation volumes into RAM
+8045.6s	640	  Epoch 13/15 - 307.1s (total: 1.14h)
+8045.6s	641	    Train loss: 0.2905
+8045.6s	642	    Val soft_dice: 0.6710
+8045.7s	643	    Best model saved! (val_dice=0.6710)
+8059.9s	644	  Epoch 14/15 [50/500] loss=0.2882 lr=0.000132 time=1.14h
+8074.0s	645	  Epoch 14/15 [100/500] loss=0.2889 lr=0.000131 time=1.15h
+8088.2s	646	  Epoch 14/15 [150/500] loss=0.2860 lr=0.000130 time=1.15h
+8102.3s	647	  Epoch 14/15 [200/500] loss=0.2845 lr=0.000129 time=1.15h
+8116.5s	648	  Epoch 14/15 [250/500] loss=0.2835 lr=0.000128 time=1.16h
+8130.7s	649	  Epoch 14/15 [300/500] loss=0.2812 lr=0.000127 time=1.16h
+8144.8s	650	  Epoch 14/15 [350/500] loss=0.2819 lr=0.000126 time=1.17h
+8158.9s	651	  Epoch 14/15 [400/500] loss=0.2830 lr=0.000124 time=1.17h
+8173.1s	652	  Epoch 14/15 [450/500] loss=0.2839 lr=0.000123 time=1.17h
+8187.3s	653	  Epoch 14/15 [500/500] loss=0.2838 lr=0.000122 time=1.18h
+8187.3s	654	
+8187.3s	655	  Validating...
+8204.3s	656	    Loaded 10 validation volumes into RAM
+8353.3s	657	  Epoch 14/15 - 307.4s (total: 1.22h)
+8353.3s	658	    Train loss: 0.2838
+8353.3s	659	    Val soft_dice: 0.6833
+8353.4s	660	    Best model saved! (val_dice=0.6833)
+8367.6s	661	  Epoch 15/15 [50/500] loss=0.2836 lr=0.000121 time=1.23h
+8381.7s	662	  Epoch 15/15 [100/500] loss=0.2836 lr=0.000120 time=1.23h
+8395.9s	663	  Epoch 15/15 [150/500] loss=0.2881 lr=0.000119 time=1.24h
+8410.0s	664	  Epoch 15/15 [200/500] loss=0.2858 lr=0.000118 time=1.24h
+8424.2s	665	  Epoch 15/15 [250/500] loss=0.2851 lr=0.000117 time=1.24h
+8438.4s	666	  Epoch 15/15 [300/500] loss=0.2847 lr=0.000116 time=1.25h
+8452.5s	667	  Epoch 15/15 [350/500] loss=0.2844 lr=0.000115 time=1.25h
+8466.6s	668	  Epoch 15/15 [400/500] loss=0.2842 lr=0.000113 time=1.26h
+8480.8s	669	  Epoch 15/15 [450/500] loss=0.2836 lr=0.000112 time=1.26h
+8495.0s	670	  Epoch 15/15 [500/500] loss=0.2836 lr=0.000111 time=1.26h
+8495.0s	671	
+8495.0s	672	  Validating...
+8512.1s	673	    Loaded 10 validation volumes into RAM
+8661.1s	674	  Epoch 15/15 - 307.7s (total: 1.31h)
+8661.1s	675	    Train loss: 0.2836
+8661.1s	676	    Val soft_dice: 0.6932
+8661.5s	677	    Best model saved! (val_dice=0.6932)
+8661.5s	678	
+8661.5s	679	ResUNet+CBAM+Tversky complete! Best val_dice: 0.6932
+8661.5s	680	   Training time: 1.31h
+8661.5s	681	
+8661.5s	682	ResUNet+CBAM+Tversky complete!
+8661.5s	683	   Val Dice: 0.6932
+8661.5s	684	   Training time: 1.31h
+8661.5s	685	   Pipeline elapsed: 2.40h / 8.75h limit
+8661.5s	686	
+8661.5s	687	======================================================================
+8661.5s	688	TRAINING SUMMARY (8-Hour Sweet Spot)
+8661.5s	689	======================================================================
+8661.5s	690	
+8661.5s	691	ResUNet+SE+ASPP:
+8661.5s	692	  Fold 0, seed 42
+8661.5s	693	  Loss: combo
+8661.5s	694	  Val Dice: 0.7683
+8661.5s	695	  Time: 1.09h
+8661.5s	696	
+8661.5s	697	ResUNet+CBAM+Tversky:
+8661.5s	698	  Fold 1, seed 1337
+8661.5s	699	  Loss: tversky
+8661.5s	700	  Val Dice: 0.6932
+8661.5s	701	  Time: 1.31h
+8661.5s	702	
+8661.5s	703	======================================================================
+8661.5s	704	ENSEMBLE (2 diverse models):
+8661.5s	705	  Mean Val Dice: 0.7308
+8661.5s	706	  Dice range: [0.6932, 0.7683]
+8661.5s	707	  Total training time: 2.40h
+8661.5s	708	  Pipeline time: 2.40h
+8661.5s	709	  Remaining budget: 6.35h
+8661.5s	710	
+8661.5s	711	Architecture diversity: SE+ASPP vs CBAM
+8661.5s	712	Loss diversity: combo vs tversky (recall-biased)
+8661.5s	713	======================================================================
+8661.6s	714	3-pass TTA function defined (with edge coverage fix)
+8661.6s	715	   - Covers ALL pixels including volume edges
+8661.6s	716	   - Logit averaging (not probability)
+8661.6s	717	   - Proper .copy() on flipped logits
+8661.7s	718	Tuning threshold on 20 val volumes (both folds): ['1407735', '1641318781', '1924200298', '1951193117', '2075542469', '2268221981', '2376256768', '2573842867', '2791137336', '2996066940', '3012554500', '3110212378', '3215721649', '3241425466', '3398456664', '3470951309', '3518241476', '808135176', '862434992', '885379642']
+8661.7s	719	======================================================================
+8661.7s	720	THRESHOLD TUNING (8-Hour Sweet Spot)
+8661.7s	721	======================================================================
+8661.7s	722	Using 2-model ensemble with 3-pass TTA
+8661.7s	723	Validation volumes: 20
+8661.7s	724	======================================================================
+8661.7s	725	
+8661.7s	726	
+8661.7s	727	Processing 1407735...
+8663.6s	728	  ResUNet+SE+ASPP...
+8663.9s	729	  Applying 3-pass TTA (logit averaging)...
+8664.3s	730	    Pass 1/3: original
+8693.8s	731	    Pass 2/3: horizontal flip
+8708.5s	732	    Pass 3/3: vertical flip
+8723.6s	733	  ResUNet+CBAM+Tversky...
+8723.9s	734	  Applying 3-pass TTA (logit averaging)...
+8724.3s	735	    Pass 1/3: original
+8740.0s	736	    Pass 2/3: horizontal flip
+8755.3s	737	    Pass 3/3: vertical flip
+8773.9s	738	
+8773.9s	739	Processing 1641318781...
+8775.7s	740	  ResUNet+SE+ASPP...
+8776.1s	741	  Applying 3-pass TTA (logit averaging)...
+8776.6s	742	    Pass 1/3: original
+8791.4s	743	    Pass 2/3: horizontal flip
+8806.5s	744	    Pass 3/3: vertical flip
+8822.0s	745	  ResUNet+CBAM+Tversky...
+8822.3s	746	  Applying 3-pass TTA (logit averaging)...
+8822.8s	747	    Pass 1/3: original
+8838.1s	748	    Pass 2/3: horizontal flip
+8853.5s	749	    Pass 3/3: vertical flip
+8871.8s	750	
+8871.8s	751	Processing 1924200298...
+8873.5s	752	  ResUNet+SE+ASPP...
+8873.9s	753	  Applying 3-pass TTA (logit averaging)...
+8874.4s	754	    Pass 1/3: original
+8889.4s	755	    Pass 2/3: horizontal flip
+8904.8s	756	    Pass 3/3: vertical flip
+8920.2s	757	  ResUNet+CBAM+Tversky...
+8920.4s	758	  Applying 3-pass TTA (logit averaging)...
+8920.9s	759	    Pass 1/3: original
+8936.2s	760	    Pass 2/3: horizontal flip
+8951.6s	761	    Pass 3/3: vertical flip
+8970.1s	762	
+8970.1s	763	Processing 1951193117...
+8971.8s	764	  ResUNet+SE+ASPP...
+8972.1s	765	  Applying 3-pass TTA (logit averaging)...
+8972.5s	766	    Pass 1/3: original
+8987.4s	767	    Pass 2/3: horizontal flip
+9002.5s	768	    Pass 3/3: vertical flip
+9018.0s	769	  ResUNet+CBAM+Tversky...
+9018.2s	770	  Applying 3-pass TTA (logit averaging)...
+9018.6s	771	    Pass 1/3: original
+9034.0s	772	    Pass 2/3: horizontal flip
+9049.6s	773	    Pass 3/3: vertical flip
+9068.3s	774	
+9068.3s	775	Processing 2075542469...
+9070.1s	776	  ResUNet+SE+ASPP...
+9070.5s	777	  Applying 3-pass TTA (logit averaging)...
+9070.9s	778	    Pass 1/3: original
+9085.8s	779	    Pass 2/3: horizontal flip
+9100.9s	780	    Pass 3/3: vertical flip
+9116.4s	781	  ResUNet+CBAM+Tversky...
+9116.6s	782	  Applying 3-pass TTA (logit averaging)...
+9117.1s	783	    Pass 1/3: original
+9132.4s	784	    Pass 2/3: horizontal flip
+9147.8s	785	    Pass 3/3: vertical flip
+9166.5s	786	
+9166.5s	787	Processing 2268221981...
+9168.2s	788	  ResUNet+SE+ASPP...
+9168.5s	789	  Applying 3-pass TTA (logit averaging)...
+9169.1s	790	    Pass 1/3: original
+9184.0s	791	    Pass 2/3: horizontal flip
+9199.1s	792	    Pass 3/3: vertical flip
+9214.6s	793	  ResUNet+CBAM+Tversky...
+9214.8s	794	  Applying 3-pass TTA (logit averaging)...
+9215.3s	795	    Pass 1/3: original
+9230.8s	796	    Pass 2/3: horizontal flip
+9246.3s	797	    Pass 3/3: vertical flip
+9264.9s	798	
+9264.9s	799	Processing 2376256768...
+9266.6s	800	  ResUNet+SE+ASPP...
+9266.9s	801	  Applying 3-pass TTA (logit averaging)...
+9267.4s	802	    Pass 1/3: original
+9282.4s	803	    Pass 2/3: horizontal flip
+9297.6s	804	    Pass 3/3: vertical flip
+9313.1s	805	  ResUNet+CBAM+Tversky...
+9313.3s	806	  Applying 3-pass TTA (logit averaging)...
+9313.8s	807	    Pass 1/3: original
+9329.3s	808	    Pass 2/3: horizontal flip
+9344.9s	809	    Pass 3/3: vertical flip
+9363.3s	810	
+9363.3s	811	Processing 2573842867...
+9364.3s	812	  ResUNet+SE+ASPP...
+9364.7s	813	  Applying 3-pass TTA (logit averaging)...
+9365.0s	814	    Pass 1/3: original
+9368.0s	815	    Pass 2/3: horizontal flip
+9370.9s	816	    Pass 3/3: vertical flip
+9374.1s	817	  ResUNet+CBAM+Tversky...
+9374.3s	818	  Applying 3-pass TTA (logit averaging)...
+9374.6s	819	    Pass 1/3: original
+9377.7s	820	    Pass 2/3: horizontal flip
+9380.8s	821	    Pass 3/3: vertical flip
+9385.4s	822	
+9385.4s	823	Processing 2791137336...
+9387.1s	824	  ResUNet+SE+ASPP...
+9387.4s	825	  Applying 3-pass TTA (logit averaging)...
+9388.0s	826	    Pass 1/3: original
+9403.1s	827	    Pass 2/3: horizontal flip
+9418.3s	828	    Pass 3/3: vertical flip
+9433.7s	829	  ResUNet+CBAM+Tversky...
+9434.0s	830	  Applying 3-pass TTA (logit averaging)...
+9434.5s	831	    Pass 1/3: original
+9450.0s	832	    Pass 2/3: horizontal flip
+9465.6s	833	    Pass 3/3: vertical flip
+9484.2s	834	
+9484.2s	835	Processing 2996066940...
+9486.0s	836	  ResUNet+SE+ASPP...
+9486.3s	837	  Applying 3-pass TTA (logit averaging)...
+9486.8s	838	    Pass 1/3: original
+9501.6s	839	    Pass 2/3: horizontal flip
+9516.8s	840	    Pass 3/3: vertical flip
+9532.3s	841	  ResUNet+CBAM+Tversky...
+9532.6s	842	  Applying 3-pass TTA (logit averaging)...
+9533.0s	843	    Pass 1/3: original
+9548.5s	844	    Pass 2/3: horizontal flip
+9564.0s	845	    Pass 3/3: vertical flip
+9583.0s	846	
+9583.0s	847	Processing 3012554500...
+9584.7s	848	  ResUNet+SE+ASPP...
+9585.1s	849	  Applying 3-pass TTA (logit averaging)...
+9585.5s	850	    Pass 1/3: original
+9600.4s	851	    Pass 2/3: horizontal flip
+9615.8s	852	    Pass 3/3: vertical flip
+9631.2s	853	  ResUNet+CBAM+Tversky...
+9631.5s	854	  Applying 3-pass TTA (logit averaging)...
+9632.0s	855	    Pass 1/3: original
+9647.4s	856	    Pass 2/3: horizontal flip
+9663.0s	857	    Pass 3/3: vertical flip
+9681.9s	858	
+9681.9s	859	Processing 3110212378...
+9683.6s	860	  ResUNet+SE+ASPP...
+9684.0s	861	  Applying 3-pass TTA (logit averaging)...
+9684.5s	862	    Pass 1/3: original
+9699.3s	863	    Pass 2/3: horizontal flip
+9714.5s	864	    Pass 3/3: vertical flip
+9729.9s	865	  ResUNet+CBAM+Tversky...
+9730.2s	866	  Applying 3-pass TTA (logit averaging)...
+9730.7s	867	    Pass 1/3: original
+9746.0s	868	    Pass 2/3: horizontal flip
+9761.4s	869	    Pass 3/3: vertical flip
+9780.0s	870	
+9780.0s	871	Processing 3215721649...
+9781.7s	872	  ResUNet+SE+ASPP...
+9782.0s	873	  Applying 3-pass TTA (logit averaging)...
+9782.5s	874	    Pass 1/3: original
+9797.5s	875	    Pass 2/3: horizontal flip
+9812.9s	876	    Pass 3/3: vertical flip
+9828.3s	877	  ResUNet+CBAM+Tversky...
+9828.5s	878	  Applying 3-pass TTA (logit averaging)...
+9829.0s	879	    Pass 1/3: original
+9844.4s	880	    Pass 2/3: horizontal flip
+9859.9s	881	    Pass 3/3: vertical flip
+9878.4s	882	
+9878.4s	883	Processing 3241425466...
+9880.0s	884	  ResUNet+SE+ASPP...
+9880.4s	885	  Applying 3-pass TTA (logit averaging)...
+9880.9s	886	    Pass 1/3: original
+9896.0s	887	    Pass 2/3: horizontal flip
+9911.4s	888	    Pass 3/3: vertical flip
+9926.9s	889	  ResUNet+CBAM+Tversky...
+9927.1s	890	  Applying 3-pass TTA (logit averaging)...
+9927.7s	891	    Pass 1/3: original
+9943.1s	892	    Pass 2/3: horizontal flip
+9958.7s	893	    Pass 3/3: vertical flip
+9977.4s	894	
+9977.4s	895	Processing 3398456664...
+9979.0s	896	  ResUNet+SE+ASPP...
+9979.4s	897	  Applying 3-pass TTA (logit averaging)...
+9979.9s	898	    Pass 1/3: original
+9994.9s	899	    Pass 2/3: horizontal flip
+10010.2s	900	    Pass 3/3: vertical flip
+10025.5s	901	  ResUNet+CBAM+Tversky...
+10025.8s	902	  Applying 3-pass TTA (logit averaging)...
+10026.2s	903	    Pass 1/3: original
+10041.6s	904	    Pass 2/3: horizontal flip
+10057.0s	905	    Pass 3/3: vertical flip
+10075.4s	906	
+10075.4s	907	Processing 3470951309...
+10077.0s	908	  ResUNet+SE+ASPP...
+10077.4s	909	  Applying 3-pass TTA (logit averaging)...
+10077.9s	910	    Pass 1/3: original
+10092.9s	911	    Pass 2/3: horizontal flip
+10108.3s	912	    Pass 3/3: vertical flip
+10123.7s	913	  ResUNet+CBAM+Tversky...
+10124.0s	914	  Applying 3-pass TTA (logit averaging)...
+10124.5s	915	    Pass 1/3: original
+10140.0s	916	    Pass 2/3: horizontal flip
+10155.6s	917	    Pass 3/3: vertical flip
+10174.1s	918	
+10174.1s	919	Processing 3518241476...
+10175.9s	920	  ResUNet+SE+ASPP...
+10176.2s	921	  Applying 3-pass TTA (logit averaging)...
+10176.7s	922	    Pass 1/3: original
+10191.5s	923	    Pass 2/3: horizontal flip
+10206.8s	924	    Pass 3/3: vertical flip
+10222.3s	925	  ResUNet+CBAM+Tversky...
+10222.5s	926	  Applying 3-pass TTA (logit averaging)...
+10223.0s	927	    Pass 1/3: original
+10238.4s	928	    Pass 2/3: horizontal flip
+10253.9s	929	    Pass 3/3: vertical flip
+10272.8s	930	
+10272.8s	931	Processing 808135176...
+10274.5s	932	  ResUNet+SE+ASPP...
+10274.8s	933	  Applying 3-pass TTA (logit averaging)...
+10275.3s	934	    Pass 1/3: original
+10290.2s	935	    Pass 2/3: horizontal flip
+10305.7s	936	    Pass 3/3: vertical flip
+10321.0s	937	  ResUNet+CBAM+Tversky...
+10321.3s	938	  Applying 3-pass TTA (logit averaging)...
+10321.8s	939	    Pass 1/3: original
+10337.1s	940	    Pass 2/3: horizontal flip
+10352.5s	941	    Pass 3/3: vertical flip
+10371.3s	942	
+10371.3s	943	Processing 862434992...
+10372.9s	944	  ResUNet+SE+ASPP...
+10373.3s	945	  Applying 3-pass TTA (logit averaging)...
+10373.7s	946	    Pass 1/3: original
+10388.5s	947	    Pass 2/3: horizontal flip
+10403.6s	948	    Pass 3/3: vertical flip
+10419.0s	949	  ResUNet+CBAM+Tversky...
+10419.2s	950	  Applying 3-pass TTA (logit averaging)...
+10419.7s	951	    Pass 1/3: original
+10434.8s	952	    Pass 2/3: horizontal flip
+10450.1s	953	    Pass 3/3: vertical flip
+10468.5s	954	
+10468.5s	955	Processing 885379642...
+10470.2s	956	  ResUNet+SE+ASPP...
+10470.6s	957	  Applying 3-pass TTA (logit averaging)...
+10471.2s	958	    Pass 1/3: original
+10486.2s	959	    Pass 2/3: horizontal flip
+10501.5s	960	    Pass 3/3: vertical flip
+10517.0s	961	  ResUNet+CBAM+Tversky...
+10517.2s	962	  Applying 3-pass TTA (logit averaging)...
+10517.8s	963	    Pass 1/3: original
+10533.3s	964	    Pass 2/3: horizontal flip
+10548.9s	965	    Pass 3/3: vertical flip
+10567.5s	966	
+10567.5s	967	======================================================================
+10567.5s	968	OPTIMAL THRESHOLD: 0.700
+10567.5s	969	   Validation Dice: 0.7913
+10567.5s	970	======================================================================
+10567.5s	971	
+10567.6s	972	
+10567.6s	973	Threshold tuning complete! best_threshold=0.700
+10567.8s	974	Found 1 test images: ['1407735']
+10567.8s	975	Train masks use 0/1 convention -- output as 0/1
+10567.8s	976	Output dtype: uint8 (matches train labels)
+10567.8s	977	
+10567.8s	978	======================================================================
+10567.8s	979	Processing test volume: 1407735
+10567.8s	980	======================================================================
+10569.7s	981	Shape: (320, 320, 320) (original ndim: 3)
+10569.7s	982	
+10569.7s	983	ResUNet+SE+ASPP predictions...
+10570.0s	984	  Applying 3-pass TTA (logit averaging)...
+10570.5s	985	    Pass 1/3: original
+10584.9s	986	    Pass 2/3: horizontal flip
+10599.9s	987	    Pass 3/3: vertical flip
+10615.1s	988	
+10615.1s	989	ResUNet+CBAM+Tversky predictions...
+10615.3s	990	  Applying 3-pass TTA (logit averaging)...
+10615.8s	991	    Pass 1/3: original
+10630.7s	992	    Pass 2/3: horizontal flip
+10645.7s	993	    Pass 3/3: vertical flip
+10661.5s	994	
+10661.5s	995	Computing ensemble...
+10661.7s	996	  Post-processing for topology metrics...
+10663.1s	997	    All 1 components >= 50 voxels
+10663.8s	998	Saved: /kaggle/working/1407735_pred.tif
+10664.4s	999	  Shape: (320, 320, 320), dtype: uint8, unique values: [0 1]
+10664.4s	1000	Pipeline time: 2.96h / 8.75h limit
+10664.4s	1001	
+10664.4s	1002	======================================================================
+10664.4s	1003	Test inference complete!
+10664.4s	1004	   Inference time: 0.03h
+10664.4s	1005	   TTA: 3-pass logit averaging (optimal)
+10664.4s	1006	   Ensemble: 2 diverse models
+10664.4s	1007	   Post-processing: small component removal + hole filling
+10664.4s	1008	   Output: uint8, scale 0/1 (matches train labels)
+10664.4s	1009	======================================================================
+10664.8s	1010	  Copied: 1407735.tif
+10664.8s	1011	
+10664.8s	1012	✅ Submission ZIP created: /kaggle/working/submission.zip
+10664.8s	1013	   Size: 0.01 MB
+10664.8s	1014	
+10664.8s	1015	======================================================================
+10664.8s	1016	🎯 8-HOUR SWEET SPOT PIPELINE COMPLETE!
+10664.8s	1017	======================================================================
+10664.8s	1018	
+10664.8s	1019	📊 ENSEMBLE PERFORMANCE:
+10664.8s	1020	   Models trained: 2
+10664.8s	1021	   Mean Val Dice: 0.7308
+10664.8s	1022	   Dice range: [0.6932, 0.7683]
+10664.8s	1023	
+10664.8s	1024	⏱️  TIME BUDGET:
+10664.8s	1025	   Total pipeline time: 2.96h / 8.00h
+10664.8s	1026	   Training: 2.40h
+10664.8s	1027	   Inference: 0.03h
+10664.8s	1028	   Remaining: 5.04h
+10664.8s	1029	
+10664.8s	1030	📦 SUBMISSION:
+10664.8s	1031	   Threshold: 0.700
+10664.8s	1032	   Test predictions: 1 volumes
+10664.8s	1033	   File: /kaggle/working/submission.zip
+10664.8s	1034	
+10664.8s	1035	✅ OPTIMIZATIONS APPLIED:
+10664.8s	1036	   - Per-volume normalization (train/test consistency)
+10664.8s	1037	   - Gradient accumulation (effective BS=16)
+10664.8s	1038	   - Optimized DataLoader (6 workers, persistent)
+10664.8s	1039	   - True LRU cache + disk caching
+10664.8s	1040	   - Deterministic patch-based validation
+10664.8s	1041	   - Batched inference (64 patches/forward)
+10664.8s	1042	   - ASPP multi-scale features (Model A)
+10664.8s	1043	   - Tversky loss recall bias (Model B)
+10664.8s	1044	   - 3-pass TTA with logit averaging
+10664.8s	1045	
+10664.8s	1046	🎯 EXPECTED GAINS:
+10664.8s	1047	   - +3-8% Dice (from structural fixes)
+10664.8s	1048	   - +2-4% Dice (from architecture + loss diversity)
+10664.8s	1049	   - 10-20x faster inference
+10664.8s	1050	   - 35% faster training
+10664.8s	1051	
+10664.8s	1052	💪 COMPETITIVE EDGE:
+10664.8s	1053	   - Maximum diversity: SE+ASPP vs CBAM + different losses
+10664.8s	1054	   - Optimal time allocation: 2.55h per model training
+10664.8s	1055	   - Principled TTA: logit averaging (not probability)
+10664.8s	1056	   - Proper threshold calibration on validation data
+10664.8s	1057	
+10664.8s	1058	======================================================================
+10664.8s	1059	Ready for Kaggle submission - Top-10 EV play!
+10664.8s	1060	======================================================================
+10669.8s	1061	/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+10669.8s	1062	  cells[i][c] = re.sub('\\\\\|', '|', cell)
+10670.0s	1063	/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+10670.0s	1064	  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+10670.7s	1065	/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=["remove_papermill_header.RemovePapermillHeader"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.
+10670.7s	1066	  warn(
+10670.7s	1067	[NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+10671.1s	1068	[NbConvertApp] Writing 206877 bytes to __notebook__.ipynb
+10673.5s	1069	/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=["nbconvert.preprocessors.ExtractOutputPreprocessor"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.
+10673.5s	1070	  warn(
+10673.5s	1071	[NbConvertApp] Converting notebook __notebook__.ipynb to html
+10674.6s	1072	[NbConvertApp] Support files will be in __results___files/
+10674.6s	1073	[NbConvertApp] Making directory __results___files
+10674.6s	1074	[NbConvertApp] Writing 646898 bytes to __results__.html
