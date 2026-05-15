@@ -12,3 +12,4 @@ monai
 connected-components-3d
 jupyter
 notebook
+pytest

@@ -1,5 +1,10 @@
 # Vesuvius Challenge Surface Detection
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
+![Kaggle](https://img.shields.io/badge/Kaggle-Vesuvius%20Challenge-20BEFF)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 Deep learning research repository for the Kaggle **Vesuvius Challenge - Surface Detection** competition.
 
 This project explores 3D surface segmentation for scroll-volume CT data, with an emphasis on topology-aware validation, specialist model ensembles, and robust inference under Kaggle runtime constraints.
@@ -24,7 +29,20 @@ The core hypothesis is that strong leaderboard performance in surface detection 
 | `outputs/metadata/` | Small JSON metadata from trained models; large weights are intentionally excluded |
 | `reports/` | Audit reports and experiment summaries |
 | `scripts/` | Notebook builders, fix scripts, and validation utilities from the project history |
+| `src/vesuvius/` | Lightweight tested utilities extracted from the notebook workflow |
+| `tests/` | Local tests for config, metadata, postprocessing, and repository hygiene |
 | `versions/` | Earlier notebook iterations retained from the original project history |
+
+## Standout Technical Artifacts
+
+| Document | Why It Matters |
+|---|---|
+| [Architecture](docs/ARCHITECTURE.md) | System view of the training and inference pipeline |
+| [Experiment Log](docs/EXPERIMENTS.md) | Research decisions, hypotheses, outcomes, and keep/drop logic |
+| [Technical Deep Dive](docs/TECHNICAL_DEEP_DIVE.md) | Explains topology-aware modeling beyond plain Dice optimization |
+| [Performance Engineering](docs/PERFORMANCE_ENGINEERING.md) | GPU memory, runtime, TTA, overlap, and degradation tradeoffs |
+| [Reproducibility](docs/REPRODUCIBILITY.md) | Data, environment, metadata, and local verification notes |
+| [Project Brief](docs/PROJECT_BRIEF.md) | Recruiter-friendly summary of impact and skills demonstrated |
 
 ## Current System
 
@@ -59,6 +77,8 @@ Competition page: https://www.kaggle.com/competitions/vesuvius-challenge-surface
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+pip install -e .
+pytest
 ```
 
 The notebooks are written for Kaggle GPU environments. Local execution is mainly useful for code review, documentation, and lightweight validation.
