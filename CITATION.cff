@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: Vesuvius Challenge Surface Detection
+message: If you use this repository, please cite it as a project repository.
+type: software
+authors:
+  - family-names: Legge
+    given-names: Chris
+repository-code: https://github.com/ChrisLegge/Vesuvius-Challenge
+date-released: 2026-05-15
+license: MIT
+keywords:
+  - deep-learning
+  - 3d-segmentation
+  - medical-imaging
+  - vesuvius-challenge
+  - kaggle

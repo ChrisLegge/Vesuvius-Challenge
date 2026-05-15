@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data and model artifacts
+data/
+datasets/
+input/
+vesuvius-surface-detection/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.tif
+*.tiff
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Generated outputs
+checkpoints/
+weights/
+runs/
+wandb/
+mlruns/
+submission.csv
+submission.zip
+
+# Local scratch
+New folder/
+nul
+*.bak

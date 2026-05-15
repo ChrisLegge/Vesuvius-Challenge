@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+scikit-image
+opencv-python
+tifffile
+matplotlib
+tqdm
+torch
+torchvision
+monai
+connected-components-3d
+jupyter
+notebook
