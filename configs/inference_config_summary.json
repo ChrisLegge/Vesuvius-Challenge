@@ -1,0 +1,21 @@
+{
+  "competition": "Vesuvius Challenge - Surface Detection",
+  "ensemble": {
+    "active_models": ["model_d", "model_c", "model_a"],
+    "weights": [0.40, 0.35, 0.25],
+    "method": "mean",
+    "temperature": 0.85
+  },
+  "postprocessing": {
+    "hysteresis_low": 0.35,
+    "hysteresis_high": 0.65,
+    "dust_min": 500,
+    "bridge_cutting": true
+  },
+  "runtime": {
+    "max_seconds_per_volume": 240,
+    "tta_enabled": true,
+    "degradation_levels": 6
+  },
+  "notes": "Lightweight summary extracted from project audit notes. Large weights and data are not tracked."
+}
