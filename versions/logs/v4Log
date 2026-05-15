@@ -1,0 +1,76 @@
+10.5s	1	0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.5s	2	0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.5s	3	0.00s - to python to disable frozen modules.
+10.5s	4	0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+11.3s	5	0.00s - Debugger warning: It seems that frozen modules are being used, which may
+11.3s	6	0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+11.3s	7	0.00s - to python to disable frozen modules.
+11.3s	8	0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.5s	9	Contents of /kaggle/input/:
+12.5s	10	['vesuvius-challenge-surface-detection']
+12.5s	11	
+12.5s	12	=== COMPETITION ===
+12.5s	13	['train_images', 'deprecated_train_labels', 'deprecated_train_images', 'train.csv', 'test.csv', 'train_labels', 'test_images']
+20.0s	14	Using device: cuda
+20.0s	15	GPU: Tesla T4
+20.0s	16	cuDNN benchmark: True
+20.0s	17	TIFF I/O: PIL-based (LZW compatible, no imagecodecs needed)
+20.0s	18	Running on KAGGLE
+20.0s	19	TRAIN_IMG_DIR: /kaggle/input/vesuvius-challenge-surface-detection/deprecated_train_images - exists: True
+20.0s	20	TRAIN_LBL_DIR: /kaggle/input/vesuvius-challenge-surface-detection/deprecated_train_labels - exists: True
+20.0s	21	TEST_IMG_DIR: /kaggle/input/vesuvius-challenge-surface-detection/test_images - exists: True
+20.1s	22	Found 20 training images
+20.1s	23	Example IDs: ['1407735', '1641318781', '1924200298', '1951193117', '2075542469']
+21.5s	24	
+21.5s	25	Train mask dtype: uint8
+21.5s	26	Train mask unique values (first up to 20): [0 1], count: 2
+21.5s	27	Train mask max value: 1
+21.6s	28	✅ Per-volume normalization utilities defined!
+21.6s	29	   - Computes stats once per volume (not per patch)
+21.6s	30	   - Ensures train/test consistency
+21.6s	31	   - Expected: +2-5% Dice improvement
+21.6s	32	PRODUCTION Dataset: ALL volumes pre-loaded in RAM!
+21.6s	33	   - Zero disk I/O during training
+21.6s	34	   - Per-volume normalization
+21.6s	35	   - Configurable z-offsets (consecutive or dilated)
+21.6s	36	   - Expected: Much higher GPU utilization
+21.6s	37	✅ ResidualUNet with SE-CBAM-ASPP attention defined!
+21.6s	38	   - SE: Squeeze-Excitation (channel attention)
+21.6s	39	   - CBAM: Convolutional Block Attention (channel + spatial)
+21.6s	40	   - ASPP: Atrous Spatial Pyramid Pooling (multi-scale)
+21.7s	41	8-Hour Sweet Spot Configuration:
+21.7s	42	   Total models: 3
+21.7s	43	   Training time: 5.40h
+21.7s	44	
+23.6s	45	Traceback (most recent call last):
+23.6s	46	  File "<string>", line 1, in <module>
+23.6s	47	  File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 131, in execute_notebook
+23.6s	48	    raise_for_execution_errors(nb, output_path)
+23.6s	49	  File "/usr/local/lib/python3.12/dist-packages/papermill/execute.py", line 251, in raise_for_execution_errors
+23.6s	50	    raise error
+23.6s	51	papermill.exceptions.PapermillExecutionError: 
+23.6s	52	---------------------------------------------------------------------------
+23.6s	53	Exception encountered at "In [8]":
+23.6s	54	---------------------------------------------------------------------------
+23.6s	55	NameError                                 Traceback (most recent call last)
+23.6s	56	/tmp/ipykernel_24/1305737834.py in <cell line: 0>()
+23.6s	57	    150 print()
+23.6s	58	    151 for m in MODELS_8H:
+23.6s	59	--> 152     offsets = get_z_offsets(CONTEXT_SLICES, m.get('z_offsets'))
+23.6s	60	    153     print(f"  Model {m['id']}: {m['name']}")
+23.6s	61	    154     print(f"    Fold {m['fold']}, seed {m['seed']}, loss: {m['loss_type']}")
+23.6s	62	
+23.6s	63	NameError: name 'CONTEXT_SLICES' is not defined
+23.6s	64	
+25.8s	65	/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+25.8s	66	  cells[i][c] = re.sub('\\\\\|', '|', cell)
+26.0s	67	/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+26.0s	68	  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+26.7s	69	/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=["remove_papermill_header.RemovePapermillHeader"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.
+26.7s	70	  warn(
+26.8s	71	[NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+27.1s	72	[NbConvertApp] Writing 118552 bytes to __notebook__.ipynb
+29.6s	73	/usr/local/lib/python3.12/dist-packages/traitlets/traitlets.py:2915: FutureWarning: --Exporter.preprocessors=["nbconvert.preprocessors.ExtractOutputPreprocessor"] for containers is deprecated in traitlets 5.0. You can pass `--Exporter.preprocessors item` ... multiple times to add items to a list.
+29.6s	74	  warn(
+29.7s	75	[NbConvertApp] Converting notebook __notebook__.ipynb to html
+30.8s	76	[NbConvertApp] Writing 671321 bytes to __results__.html

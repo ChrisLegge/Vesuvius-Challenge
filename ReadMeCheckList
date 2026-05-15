@@ -1,0 +1,180 @@
+Vesuvius Challenge Checklist: 
+PHASE 1 — Data Handling & Arrays (REQUIRED)
+NumPy (CRITICAL)
+
+Creating array
+Shapes & dimensions
+Indexing & slicing
+Stacking arrays
+Basic math (mean, std, min, max)
+Normalisation
+Axis operations (axis=0/1/2)
+Pandas (MINIMAL)
+read_csv
+Column selection
+Filtering
+Converting to NumPy
+Matplotlib (MINIMAL)
+imshow
+hist
+Subplots
+
+Learn it here (USE THESE ONLY)
+✅ Kaggle
+
+Python (NumPy basics are enough):
+https://www.kaggle.com/learn/python
+
+Pandas (fully sufficient):
+https://www.kaggle.com/learn/pandas
+
+Data Visualization (just images + histograms):
+https://www.kaggle.com/learn/data-visualization
+
+⛔ Skip Seaborn, advanced plots, dashboards
+
+PHASE 2 — Image & CT Slice Handling (REQUIRED)
+Images as 2D arrays
+Grayscale intensity meaning
+6-bit images (important)
+Image normalisation
+Loading TIFF images
+Visual inspection of slices
+
+
+⛔SKIP: Feature detection,Keypoints,Classical CV pipelines, Edge-based heuristics
+
+Learn it here
+✅ Kaggle (Primary)
+
+Use notebooks from the competition discussion
+
+Search:
+
+“Vesuvius data exploration”
+
+Minimal external (only if confused)
+
+scikit-image quickstart (skim only):
+https://scikit-image.org/docs/stable/user_guide/quickstart.html
+
+
+PHASE 3 — PyTorch & Training (REQUIRED)
+Only these PyTorch concepts:
+Tensors vs NumPy
+GPU vs CPU
+Custom Dataset class
+DataLoader
+Training loop
+Validation loop
+Loss functions (BCE, Dice)
+Optimiser (Adam)
+⛔SKIP: Theory of backprop, Custom autograd, Writing ops in CUDA, Fancy schedulers
+
+Learn it here
+✅ Kaggle (Primary)
+
+Intro to Deep Learning:
+https://www.kaggle.com/learn/deep-learning
+
+🔹 Minimal external (ONLY for clarity)
+
+PyTorch 60-minute blitz (sections 1–3 only):
+https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html
+
+PHASE 4 — 3D Volumes & Patch Logic (REQUIRED)
+Stacking slices into (Z, H, W)
+Extracting patches from volumes
+Memory awareness
+Viewing slices along Z
+Why are patches mandatory?
+
+⛔What to SKIP: Full 3D CNNs (initially), Medical metadata formats,Physics of CT scanning
+
+Learn it here
+✅ Kaggle (Primary)
+
+Competition notebooks:
+
+Search:
+
+“2.5D UNet Vesuvius”
+“Patch extraction Vesuvius”
+
+⚠ Kaggle is enough here — no textbook needed
+
+
+PHASE 5 — Segmentation Models (REQUIRED)
+UNet architecture (conceptual)
+Binary segmentation
+Dice loss
+BCE + Dice
+Sliding-window inference
+Stitching predictions
+⛔ What to SKIP: Mask R-CNN, Transformers, Attention theory, Multi-task learning
+
+Learn it here
+✅ Kaggle (Primary)
+
+Look for:
+
+“UNet baseline Vesuvius”
+
+Clone and read top-scoring public notebooks
+
+🔹 Minimal external (visual intuition only)
+
+UNet explanation (skim diagrams):
+https://towardsdatascience.com/unet-line-by-line-explanation-9b1912a1f76b
+
+
+PHASE 6 — Vesuvius-Specific Knowledge (REQUIRED)
+(no extra ML here — just intuition)
+Ink ≈ papyrus density
+Ink is detected via texture across depth
+Why 2.5D > 2D
+Why surface-centred sampling matters
+
+Learn it here
+✅ Kaggle + Official Docs
+
+Competition Overview:
+https://www.kaggle.com/competitions/vesuvius-challenge-ink-detection
+
+ScrollPrize Tutorials (read once):
+https://scrollprize.org/competition
+
+PHASE 7 — Kaggle Practical Skills (REQUIRED)
+What you MUST know
+How to enable GPU
+How to reduce batch size
+How to save models
+How to resume runs
+How to submit predictions
+
+Learn it here
+✅ Kaggle Docs
+
+Kaggle Notebooks:
+https://www.kaggle.com/docs/notebooks
+
+PHASE 8 — Optional Competitive Boost (OPTIONAL)
+Only do this after you are submitting reliably.
+Test-time augmentation
+Patch overlap tuning
+Simple ensembling
+Copy one trick from the top solutions
+
+
+Learn directly from:
+
+Kaggle discussion tab
+
+High-ranking notebooks
+
+⛔ Do NOT chase every trick
+  
+        
+
+
+        

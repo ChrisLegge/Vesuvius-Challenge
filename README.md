@@ -24,6 +24,7 @@ The core hypothesis is that strong leaderboard performance in surface detection 
 | `outputs/metadata/` | Small JSON metadata from trained models; large weights are intentionally excluded |
 | `reports/` | Audit reports and experiment summaries |
 | `scripts/` | Notebook builders, fix scripts, and validation utilities from the project history |
+| `versions/` | Earlier notebook iterations retained from the original project history |
 
 ## Current System
 
@@ -31,9 +32,9 @@ The current project state uses a specialist ensemble design:
 
 | Model | Role | Seed | Fold | Patch Size | Best Proxy Score |
 |---|---:|---:|---:|---:|---:|
-| Model A | Generalist | 42 | 0 | 192³ | 0.5816 |
-| Model B | Anti-merge | 1337 | 1 | 160³ | 0.5110 |
-| Model C | Surface specialist | 2024 | 2 | 192³ | 0.4902 |
+| Model A | Generalist | 42 | 0 | 192 x 192 x 192 | 0.5816 |
+| Model B | Anti-merge | 1337 | 1 | 160 x 160 x 160 | 0.5110 |
+| Model C | Surface specialist | 2024 | 2 | 192 x 192 x 192 | 0.4902 |
 
 Inference uses temperature scaling, hysteresis thresholds, topology-aware post-processing, test-time augmentation, and a time-budget degradation ladder.
 
