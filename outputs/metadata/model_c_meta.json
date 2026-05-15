@@ -1,0 +1,84 @@
+{
+  "model": "model_c",
+  "seed": 2024,
+  "fold": 2,
+  "arch_hash": "bef085389f24",
+  "patch_size": [
+    192,
+    192,
+    192
+  ],
+  "k_changes": [
+    {
+      "epoch": 0,
+      "k": 4,
+      "elapsed_h": 0.07
+    },
+    {
+      "epoch": 11,
+      "k": 6,
+      "elapsed_h": 2.22
+    },
+    {
+      "epoch": 23,
+      "k": 8,
+      "elapsed_h": 4.85
+    }
+  ],
+  "best_loss_epoch": 3,
+  "best_loss": 1.0098829287290574,
+  "last_epoch": 37,
+  "last_loss": 4.409057096021259,
+  "best_val_epoch": 14,
+  "best_val_score": 0.4901973126470852,
+  "best_val_breakdown": {
+    "surfdice": 0.0770572501379746,
+    "voi": 0.7813636431394116,
+    "topo": 0.6325,
+    "composite": 0.4901973126470852,
+    "stability_width": 0.2
+  },
+  "best_surfdice_epoch": 35,
+  "best_surfdice": 0.1112963855578403,
+  "best_voi_epoch": 9,
+  "best_voi": 0.8419087036067582,
+  "best_topo_epoch": 4,
+  "best_topo": 0.6499999999999999,
+  "phase_changes": [
+    {
+      "epoch": 7,
+      "from": "early",
+      "to": "mid",
+      "patch_size": [
+        128,
+        128,
+        128
+      ],
+      "elapsed_h": 1.41,
+      "lr_at_transition": 0.0027847508760838746
+    },
+    {
+      "epoch": 23,
+      "from": "mid",
+      "to": "late",
+      "patch_size": [
+        128,
+        128,
+        128
+      ],
+      "elapsed_h": 4.85,
+      "lr_at_transition": 0.002395797518603408
+    }
+  ],
+  "swa_used": false,
+  "total_epochs": 39,
+  "total_time_h": 8.668313080734677,
+  "tl": 0.34,
+  "th": 0.62,
+  "temperature": 0.85,
+  "combined_proxy": 0.0,
+  "model_role": "surface",
+  "dust_min": 128,
+  "inf_overlap": 0.5,
+  "bk_min_lobe": 10000
+}

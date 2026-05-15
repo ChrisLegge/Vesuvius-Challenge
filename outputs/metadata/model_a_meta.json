@@ -1,0 +1,84 @@
+{
+  "model": "model_a",
+  "seed": 42,
+  "fold": 0,
+  "arch_hash": "bef085389f24",
+  "patch_size": [
+    192,
+    192,
+    192
+  ],
+  "k_changes": [
+    {
+      "epoch": 0,
+      "k": 4,
+      "elapsed_h": 0.07
+    },
+    {
+      "epoch": 10,
+      "k": 6,
+      "elapsed_h": 2.24
+    },
+    {
+      "epoch": 20,
+      "k": 8,
+      "elapsed_h": 4.76
+    }
+  ],
+  "best_loss_epoch": 3,
+  "best_loss": 1.024839954972267,
+  "last_epoch": 32,
+  "last_loss": 3.5076234948635103,
+  "best_val_epoch": 23,
+  "best_val_score": 0.5816358896750454,
+  "best_val_breakdown": {
+    "surfdice": 0.48418520110038044,
+    "voi": 0.9204887693997496,
+    "topo": 0.3,
+    "composite": 0.5816358896750454,
+    "stability_width": 0.7
+  },
+  "best_surfdice_epoch": 23,
+  "best_surfdice": 0.4728141618136723,
+  "best_voi_epoch": 23,
+  "best_voi": 0.9069294195604338,
+  "best_topo_epoch": 27,
+  "best_topo": 0.5625,
+  "phase_changes": [
+    {
+      "epoch": 6,
+      "from": "early",
+      "to": "mid",
+      "patch_size": [
+        128,
+        128,
+        128
+      ],
+      "elapsed_h": 1.32,
+      "lr_at_transition": 0.000705940301122232
+    },
+    {
+      "epoch": 20,
+      "from": "mid",
+      "to": "late",
+      "patch_size": [
+        128,
+        128,
+        128
+      ],
+      "elapsed_h": 4.76,
+      "lr_at_transition": 0.0009492580334864888
+    }
+  ],
+  "swa_used": true,
+  "total_epochs": 34,
+  "total_time_h": 8.771927672094769,
+  "tl": 0.34,
+  "th": 0.62,
+  "temperature": 0.85,
+  "combined_proxy": 0.0,
+  "model_role": "generalist",
+  "dust_min": 192,
+  "inf_overlap": 0.5,
+  "bk_min_lobe": 10000
+}
