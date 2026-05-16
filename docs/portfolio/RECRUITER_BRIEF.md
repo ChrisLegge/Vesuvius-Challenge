@@ -24,3 +24,7 @@ A useful interview opener is: I treated the challenge as a topology-risk problem
 ## Best Files To Review
 
 Start with README.md, docs/PROJECT_BRIEF.md, docs/ARCHITECTURE.md, docs/TECHNICAL_DEEP_DIVE.md, and docs/PERFORMANCE_ENGINEERING.md.
+
+## Role Fit
+
+The project maps to research engineer, ML engineer, computer vision engineer, GPU inference, and quantitative technology roles.
