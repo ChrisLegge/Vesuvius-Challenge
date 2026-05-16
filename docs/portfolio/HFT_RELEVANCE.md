@@ -28,3 +28,7 @@ Patch size, overlap, TTA, and ensemble size are presented as explicit tradeoffs 
 ## Auditability
 
 Tracked metadata and production audit notes create an audit trail for model choices and inference settings.
+
+## Failure Mode Thinking
+
+The project documents failure modes before proposing fixes, which is a strong software engineering habit in high-pressure environments.
