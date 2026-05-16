@@ -12,3 +12,7 @@ The project frames rare topology failures as important tail events, not just ave
 ## Model Governance
 
 Model metadata, limitations, and data policies are tracked to support governance-style review.
+
+## Validation Discipline
+
+The experiment log records hypotheses, changes, outcomes, and decisions, which mirrors disciplined research workflows.
