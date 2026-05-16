@@ -24,3 +24,7 @@ The production audit report and inference checklist show that deployment setting
 ## Communication
 
 The docs turn complex modeling choices into readable technical narratives, which is a major part of senior engineering impact.
+
+## Testing Without Heavy Data
+
+The test suite validates invariants that do not require Kaggle data, keeping local checks fast.
