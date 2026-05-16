@@ -20,3 +20,7 @@ The local tests check config validity, metadata structure, postprocessing behavi
 ## Deterministic Review
 
 The repository separates deterministic local checks from nondeterministic GPU notebook execution. This makes review faster and safer.
+
+## Engineering Tradeoffs
+
+Patch size, overlap, TTA, and ensemble size are presented as explicit tradeoffs rather than hidden notebook constants.
