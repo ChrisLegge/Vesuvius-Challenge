@@ -16,3 +16,7 @@ The system exposes inference knobs such as window size, overlap, model count, an
 ## GPU Memory Awareness
 
 Patch-size decisions are documented as memory-quality tradeoffs, which is essential for production GPU workflows.
+
+## Model Diversity
+
+Specialist models are used for complementary failure modes, showing ensemble design beyond simple seed averaging.
