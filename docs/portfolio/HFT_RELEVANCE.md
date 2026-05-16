@@ -16,3 +16,7 @@ Topology failures are treated like tail-risk events. That framing is similar to 
 ## Testing Signal
 
 The local tests check config validity, metadata structure, postprocessing behavior, and artifact hygiene without needing a GPU.
+
+## Deterministic Review
+
+The repository separates deterministic local checks from nondeterministic GPU notebook execution. This makes review faster and safer.
