@@ -20,3 +20,7 @@ Small source utilities and tests give reviewers something concrete to inspect wi
 ## Production Thinking
 
 The production audit report and inference checklist show that deployment settings were checked systematically.
+
+## Communication
+
+The docs turn complex modeling choices into readable technical narratives, which is a major part of senior engineering impact.
