@@ -12,3 +12,7 @@ The project centers on GPU-heavy 3D segmentation, memory-aware inference, and pr
 ## Inference Optimization
 
 The system exposes inference knobs such as window size, overlap, model count, and TTA so performance can be tuned against quality.
+
+## GPU Memory Awareness
+
+Patch-size decisions are documented as memory-quality tradeoffs, which is essential for production GPU workflows.
