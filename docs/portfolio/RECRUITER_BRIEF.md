@@ -8,3 +8,7 @@ This project is positioned as a research engineering case study: ambiguous 3D da
 ## One-Line Summary
 
 Built a topology-aware 3D segmentation workflow for Kaggle's Vesuvius surface detection task, combining specialist models, robust inference, and reproducibility controls.
+
+## Why It Stands Out
+
+The repository shows the complete system around the model: experiment design, model cards, metadata validation, performance tradeoffs, tests, and data-governance rules.
