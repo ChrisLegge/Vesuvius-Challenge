@@ -24,3 +24,7 @@ Specialist models are used for complementary failure modes, showing ensemble des
 ## Robust Deployment
 
 The degradation ladder is a deployment reliability pattern: preserve output quality as much as possible when compute budget changes.
+
+## Metric-Aware Modeling
+
+The technical notes connect model behavior to metric components, which is important when optimizing complex vision systems.
