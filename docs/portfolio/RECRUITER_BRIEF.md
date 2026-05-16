@@ -28,3 +28,7 @@ Start with README.md, docs/PROJECT_BRIEF.md, docs/ARCHITECTURE.md, docs/TECHNICA
 ## Role Fit
 
 The project maps to research engineer, ML engineer, computer vision engineer, GPU inference, and quantitative technology roles.
+
+## Repository Hygiene Signal
+
+Large artifacts are intentionally excluded while metadata, configs, and tests remain tracked. This makes the repository safe to clone and easy to review.
