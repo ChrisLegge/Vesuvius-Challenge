@@ -24,3 +24,7 @@ The repository avoids committing heavyweight or sensitive artifacts while preser
 ## Readable Evidence
 
 Audit reports and metadata summaries make the model choices easier to inspect than raw notebook outputs alone.
+
+## Failure Controls
+
+The system records how bridge, split, and runtime failures are detected or mitigated.
