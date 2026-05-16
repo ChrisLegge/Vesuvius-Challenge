@@ -12,3 +12,7 @@ Notebook-heavy work is wrapped with a clear repository structure, README navigat
 ## Reproducibility
 
 The repository documents data paths, environment assumptions, metadata, and known nondeterminism.
+
+## Reviewability
+
+Small source utilities and tests give reviewers something concrete to inspect without downloading competition data.
