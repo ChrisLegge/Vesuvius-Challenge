@@ -8,3 +8,7 @@ HFT engineering values correctness under constraints. This project demonstrates 
 ## Latency Mindset
 
 The inference degradation ladder is a latency-control pattern: the system reduces compute instead of failing when resource budgets tighten.
+
+## Risk Controls
+
+Topology failures are treated like tail-risk events. That framing is similar to engineering systems where rare failures dominate operational risk.
