@@ -20,3 +20,7 @@ The strongest signal is not a single notebook; it is the ability to turn a Kaggl
 ## Interview Hook
 
 A useful interview opener is: I treated the challenge as a topology-risk problem, not just an overlap-score problem.
+
+## Best Files To Review
+
+Start with README.md, docs/PROJECT_BRIEF.md, docs/ARCHITECTURE.md, docs/TECHNICAL_DEEP_DIVE.md, and docs/PERFORMANCE_ENGINEERING.md.
