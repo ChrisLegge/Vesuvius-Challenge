@@ -12,3 +12,7 @@ The inference degradation ladder is a latency-control pattern: the system reduce
 ## Risk Controls
 
 Topology failures are treated like tail-risk events. That framing is similar to engineering systems where rare failures dominate operational risk.
+
+## Testing Signal
+
+The local tests check config validity, metadata structure, postprocessing behavior, and artifact hygiene without needing a GPU.
