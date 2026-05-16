@@ -28,3 +28,7 @@ The docs turn complex modeling choices into readable technical narratives, which
 ## Testing Without Heavy Data
 
 The test suite validates invariants that do not require Kaggle data, keeping local checks fast.
+
+## Code Organization
+
+The package layout separates reusable utilities from notebooks, which makes the project easier to extend.
