@@ -16,3 +16,7 @@ The repository documents data paths, environment assumptions, metadata, and know
 ## Reviewability
 
 Small source utilities and tests give reviewers something concrete to inspect without downloading competition data.
+
+## Production Thinking
+
+The production audit report and inference checklist show that deployment settings were checked systematically.
