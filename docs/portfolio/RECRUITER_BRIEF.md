@@ -16,3 +16,7 @@ The repository shows the complete system around the model: experiment design, mo
 ## Research Engineering Signal
 
 The strongest signal is not a single notebook; it is the ability to turn a Kaggle workflow into a reviewable, testable, documented research repository.
+
+## Interview Hook
+
+A useful interview opener is: I treated the challenge as a topology-risk problem, not just an overlap-score problem.
