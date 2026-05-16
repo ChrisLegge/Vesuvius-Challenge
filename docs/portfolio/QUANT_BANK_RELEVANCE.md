@@ -8,3 +8,7 @@ Quant technology teams value validation, audit trails, reproducibility, risk-awa
 ## Risk Framing
 
 The project frames rare topology failures as important tail events, not just average-score noise.
+
+## Model Governance
+
+Model metadata, limitations, and data policies are tracked to support governance-style review.
