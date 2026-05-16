@@ -20,3 +20,7 @@ Patch-size decisions are documented as memory-quality tradeoffs, which is essent
 ## Model Diversity
 
 Specialist models are used for complementary failure modes, showing ensemble design beyond simple seed averaging.
+
+## Robust Deployment
+
+The degradation ladder is a deployment reliability pattern: preserve output quality as much as possible when compute budget changes.
