@@ -18,7 +18,8 @@ function Add-StepCommit {
     }
 
     if (-not (Test-Path $Path)) {
-        "# $($Path | Split-Path -LeafBase | ForEach-Object { $_ -replace '_', ' ' })`n" | Set-Content -Encoding utf8 $Path
+        $baseName = [System.IO.Path]::GetFileNameWithoutExtension($Path) -replace '_', ' '
+        "# $baseName`n" | Set-Content -Encoding utf8 $Path
     }
 
     @"
