@@ -24,3 +24,7 @@ The repository separates deterministic local checks from nondeterministic GPU no
 ## Engineering Tradeoffs
 
 Patch size, overlap, TTA, and ensemble size are presented as explicit tradeoffs rather than hidden notebook constants.
+
+## Auditability
+
+Tracked metadata and production audit notes create an audit trail for model choices and inference settings.
