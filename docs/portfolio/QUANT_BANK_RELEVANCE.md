@@ -28,3 +28,7 @@ Audit reports and metadata summaries make the model choices easier to inspect th
 ## Failure Controls
 
 The system records how bridge, split, and runtime failures are detected or mitigated.
+
+## Quant Interview Link
+
+A strong interview framing is: I built a risk-aware ML system where tail failures mattered more than average-case appearance.
