@@ -28,3 +28,7 @@ The degradation ladder is a deployment reliability pattern: preserve output qual
 ## Metric-Aware Modeling
 
 The technical notes connect model behavior to metric components, which is important when optimizing complex vision systems.
+
+## Portfolio Signal
+
+The repository demonstrates the ability to explain GPU-relevant design decisions clearly, not only to run a model.
