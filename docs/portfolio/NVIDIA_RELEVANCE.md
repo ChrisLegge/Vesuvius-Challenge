@@ -8,3 +8,7 @@ The project centers on GPU-heavy 3D segmentation, memory-aware inference, and pr
 ## 3D Workload
 
 3D CT segmentation stresses memory bandwidth, VRAM capacity, and sliding-window scheduling more than ordinary 2D image classification.
+
+## Inference Optimization
+
+The system exposes inference knobs such as window size, overlap, model count, and TTA so performance can be tuned against quality.
