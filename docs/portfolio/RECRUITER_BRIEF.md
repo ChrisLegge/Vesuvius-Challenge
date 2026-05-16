@@ -12,3 +12,7 @@ Built a topology-aware 3D segmentation workflow for Kaggle's Vesuvius surface de
 ## Why It Stands Out
 
 The repository shows the complete system around the model: experiment design, model cards, metadata validation, performance tradeoffs, tests, and data-governance rules.
+
+## Research Engineering Signal
+
+The strongest signal is not a single notebook; it is the ability to turn a Kaggle workflow into a reviewable, testable, documented research repository.
