@@ -38,6 +38,7 @@ The core hypothesis is that strong leaderboard performance in surface detection 
 
 | Document | Contents |
 |---|---|
+| [Paper Draft](docs/PAPER_DRAFT.md) | Structured abstract: motivation, problem formulation, method, ablation results, known limitations, what would be needed to publish |
 | [Project Summary](docs/PROJECT_BRIEF.md) | Problem statement, scoring metric, constrained optimisation framing, results, known limitations |
 | [Architecture](docs/ARCHITECTURE.md) | Training and inference pipeline design |
 | [Experiment Log](docs/EXPERIMENTS.md) | Research decisions, hypotheses tested, outcomes, and what was dropped |
