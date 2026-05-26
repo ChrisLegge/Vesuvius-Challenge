@@ -24,7 +24,7 @@ The core hypothesis is that strong leaderboard performance in surface detection 
 | Path | Purpose |
 |---|---|
 | `notebooks/` | Kaggle training and inference notebooks, curated into a readable sequence |
-| `docs/` | Research methodology, architecture notes, data policy, and manual commit guide |
+| `docs/` | Research methodology, architecture notes, experiment log, and data policy |
 | `configs/` | Lightweight configuration snapshots for model roles and inference choices |
 | `outputs/metadata/` | Small JSON metadata from trained models; large weights are intentionally excluded |
 | `reports/` | Audit reports and experiment summaries |
