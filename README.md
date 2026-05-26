@@ -34,16 +34,16 @@ The core hypothesis is that strong leaderboard performance in surface detection 
 | `tests/` | Local tests for config, metadata, postprocessing, and repository hygiene |
 | `versions/` | Earlier notebook iterations retained from the original project history |
 
-## Standout Technical Artifacts
+## Documentation
 
-| Document | Why It Matters |
+| Document | Contents |
 |---|---|
-| [Architecture](docs/ARCHITECTURE.md) | System view of the training and inference pipeline |
-| [Experiment Log](docs/EXPERIMENTS.md) | Research decisions, hypotheses, outcomes, and keep/drop logic |
-| [Technical Deep Dive](docs/TECHNICAL_DEEP_DIVE.md) | Explains topology-aware modeling beyond plain Dice optimization |
-| [Performance Engineering](docs/PERFORMANCE_ENGINEERING.md) | GPU memory, runtime, TTA, overlap, and degradation tradeoffs |
-| [Reproducibility](docs/REPRODUCIBILITY.md) | Data, environment, metadata, and local verification notes |
-| [Project Brief](docs/PROJECT_BRIEF.md) | Recruiter-friendly summary of impact and skills demonstrated |
+| [Project Summary](docs/PROJECT_BRIEF.md) | Problem statement, scoring metric, constrained optimisation framing, results, known limitations |
+| [Architecture](docs/ARCHITECTURE.md) | Training and inference pipeline design |
+| [Experiment Log](docs/EXPERIMENTS.md) | Research decisions, hypotheses tested, outcomes, and what was dropped |
+| [Technical Deep Dive](docs/TECHNICAL_DEEP_DIVE.md) | Topology-aware modelling: VOI, Betti matching, phase-gated losses |
+| [Performance Engineering](docs/PERFORMANCE_ENGINEERING.md) | GPU memory, patch scheduling, TTA cost, degradation ladder tradeoffs |
+| [Reproducibility](docs/REPRODUCIBILITY.md) | Data paths, environment, known sources of nondeterminism |
 
 ## Current System
 
@@ -77,6 +77,22 @@ All figures below are generated from committed training history by `analysis/plo
 
 ![Model comparison](results/figures/fig4_model_comparison.png)
 
+## Topology Post-Processing
+
+The two structural failure modes the system targets, visualised on synthetic probability maps generated to match typical scroll CT characteristics. Figures produced by `analysis/plot_topology_postprocess.py`.
+
+**Bridge case (VOI_merge / Topo k1 failure)** — two topologically distinct surfaces connected by a thin low-confidence bridge. Naive thresholding at 0.50 merges them into one component. Hysteresis thresholding reduces the bridge; bridge-neck cutting via distance-transform thickness removes it.
+
+![Bridge case](results/figures/fig5_topology_bridge_case.png)
+
+**Split case (VOI_split / Topo k0 failure)** — a single continuous surface fragmented by a CT attenuation shadow. Naive thresholding produces two components where one should exist. Hysteresis recovers continuity by propagating from high-confidence seed regions.
+
+![Split case](results/figures/fig6_topology_split_case.png)
+
+**Full pipeline overview** — both failure modes through each processing stage, with connected-component counts annotated at each step.
+
+![Pipeline overview](results/figures/fig7_postprocess_pipeline.png)
+
 ## What Is Not Committed
 
 Large competition assets, model checkpoints, and generated datasets are intentionally excluded from Git:
@@ -100,11 +116,9 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 pip install -e ".[dev]"
 pytest                           # 5 tests, no GPU or data required
-python analysis/plot_training_curves.py   # regenerate training figures
+python analysis/plot_training_curves.py      # regenerate training figures
+python analysis/plot_topology_postprocess.py # regenerate topology figures
 ```
 
 The training notebooks run on Kaggle GPU environments. Everything else — tests, analysis scripts, and figure generation — runs locally without competition data.
 
-## Project Status
-
-This repository is presented as a research portfolio project. It documents the modeling direction, experiments, validation logic, and final Kaggle-facing notebooks without committing private datasets or heavyweight artifacts.
