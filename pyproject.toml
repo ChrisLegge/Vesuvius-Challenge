@@ -9,6 +9,9 @@ description = "Lightweight utilities for a Vesuvius Challenge surface detection 
 requires-python = ">=3.10"
 dependencies = []
 
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

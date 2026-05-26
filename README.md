@@ -1,5 +1,6 @@
 # Vesuvius Challenge Surface Detection
 
+![CI](https://github.com/ChrisLegge/Vesuvius-Challenge/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-Deep%20Learning-red)
 ![Kaggle](https://img.shields.io/badge/Kaggle-Vesuvius%20Challenge-20BEFF)
