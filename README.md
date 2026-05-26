@@ -57,6 +57,26 @@ The current project state uses a specialist ensemble design:
 
 Inference uses temperature scaling, hysteresis thresholds, topology-aware post-processing, test-time augmentation, and a time-budget degradation ladder.
 
+## Training Evidence
+
+All figures below are generated from committed training history by `analysis/plot_training_curves.py` — no competition data or GPU required to reproduce them.
+
+**Loss trajectories across all three specialists** — phase bands show early/mid/late gating. Dotted vertical line marks the best validation epoch per model.
+
+![Loss trajectories](results/figures/fig1_loss_trajectories.png)
+
+**Phase-gated loss component activation** — shows which components (gap-negative, centreline Dice, topology guide) are inactive in early phase and progressively introduced in mid and late. Each specialist has a different activation pattern reflecting its role.
+
+![Phase-gated components](results/figures/fig2_phase_gated_components.png)
+
+**Learning rate schedules** — cosine schedule with a non-trivial floor. Late-phase LR held above 3e-4 to keep surface polishing active.
+
+![LR schedules](results/figures/fig3_lr_schedules.png)
+
+**Model comparison** — score decomposition (composite, SurfaceDice, VOI, TopoScore), training time, and patch size per specialist.
+
+![Model comparison](results/figures/fig4_model_comparison.png)
+
 ## What Is Not Committed
 
 Large competition assets, model checkpoints, and generated datasets are intentionally excluded from Git:
@@ -74,15 +94,16 @@ Competition page: https://www.kaggle.com/competitions/vesuvius-challenge-surface
 
 ## Quick Start
 
-```powershell
+```bash
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-pip install -e .
-pytest
+pip install -e ".[dev]"
+pytest                           # 5 tests, no GPU or data required
+python analysis/plot_training_curves.py   # regenerate training figures
 ```
 
-The notebooks are written for Kaggle GPU environments. Local execution is mainly useful for code review, documentation, and lightweight validation.
+The training notebooks run on Kaggle GPU environments. Everything else — tests, analysis scripts, and figure generation — runs locally without competition data.
 
 ## Project Status
 
