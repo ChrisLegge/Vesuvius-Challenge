@@ -7,7 +7,12 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  # -------------------------------------------------------------------------
+  # Job 1: metrics, post-processing, config, and repository hygiene tests.
+  # No GPU, no PyTorch — runs in < 60 s.
+  # -------------------------------------------------------------------------
+  test-core:
+    name: Core tests (scipy / numpy)
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +23,44 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install dependencies
+      - name: Install core dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e ".[dev]"
+          pip install -e ".[dev]" --no-deps
+          pip install pytest scipy numpy scikit-image
 
-      - name: Run tests
-        run: pytest tests/ -v
+      - name: Run core tests
+        run: |
+          pytest tests/test_metrics.py \
+                 tests/test_postprocess.py \
+                 tests/test_repository_hygiene.py \
+                 -v
+
+  # -------------------------------------------------------------------------
+  # Job 2: loss function and model architecture tests.
+  # Requires PyTorch (CPU-only wheel). Runs in < 5 min.
+  # -------------------------------------------------------------------------
+  test-torch:
+    name: Torch tests (losses / model)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies with PyTorch (CPU)
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]" --no-deps
+          pip install pytest scipy numpy
+
+      - name: Run torch tests
+        run: |
+          pytest tests/test_losses.py \
+                 tests/test_model.py \
+                 -v

@@ -1,6 +1,7 @@
 """Utilities for the Vesuvius surface detection research repository."""
 
 from .config import InferenceConfig, load_inference_config
+from .model import ResidualUNet3D, build_model
 from .losses import (
     ANTI_MERGE_WEIGHTS,
     GENERALIST_WEIGHTS,
@@ -23,6 +24,8 @@ from .postprocess import hysteresis_components
 
 __all__ = [
     "ANTI_MERGE_WEIGHTS",
+    "ResidualUNet3D",
+    "build_model",
     "GENERALIST_WEIGHTS",
     "InferenceConfig",
     "REQUIRED_METADATA_FIELDS",
