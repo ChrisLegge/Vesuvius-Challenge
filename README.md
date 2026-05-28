@@ -172,7 +172,7 @@ python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 pip install -e ".[dev]"
-pytest                           # 20 tests, no GPU or data required
+pytest                           # 65 tests, no GPU or data required
 python analysis/plot_training_curves.py      # regenerate training figures
 python analysis/plot_topology_postprocess.py # regenerate topology figures
 python analysis/plot_score_sensitivity.py    # regenerate metric sensitivity figures
@@ -181,4 +181,8 @@ python analysis/plot_calibration.py         # regenerate calibration analysis fi
 ```
 
 The training notebooks run on Kaggle GPU environments. Everything else — tests, analysis scripts, and figure generation — runs locally without competition data.
+
+## Contributors
+
+A two-person project (Arya Arun and Chris Legge), covering model architecture, the phase-gated loss design, topology-aware post-processing, the inference pipeline, and the research/analysis tooling. See the commit history for the detailed split.
 
